@@ -35,8 +35,11 @@ export default class Reservation extends React.Component {
                     {/* <Input type="password" label="password" s={6} ><Icon>lock</Icon></Input> */}
                     {/* <Input type="email" label="Email" s={6} ><Icon>email</Icon></Input> */}
                     {/* <Input s={6} label="Telephone" validate type='tel'><Icon>phone</Icon></Input> */}
+                    <Row>
                     <Autocomplete
-                        title='Rasa'
+                        icon='pets'
+                        s={4}
+                        placeholder='Rasa'
                         data={
                         {
                             'Beagle': null,
@@ -45,10 +48,32 @@ export default class Reservation extends React.Component {
 
                         }
                         }
+                        
                     />
-                    <Input name='on'label="Pick date from" type='date' className='datepicker' onChange={this.ace} data-value={today}/>
-                    <Input name='on' type='date' label="Pick date to" className='datepickertill'  data-value={today}/>
-                    <Button waves='light' node='a' href='/login'> Make reservation</Button>
+                    </Row>
+                    <Row>
+                    <Input s={4} type='select' label='Broj na milenici' icon='more_vert' defaultValue='2'>
+                        <option value='1'>Eden</option>
+                        <option value='2'>Dva</option>
+                        <option value='3'>Tri</option>
+                    </Input>
+                    </Row>
+                    <Row>
+                    <Input s={2} name='group1' type='radio' value='masko' label='mashko' className='with-gap' />
+                    <Input s={2} name='group1' type='radio' value='zensko' label='zensko' className='with-gap' />
+                    </Row>
+                    <Input s={3} name='on'label="Pick date from" type='date' className='datepicker'icon='date_range'  onChange={this.ace} data-value={today}/>
+                    <Input s={3} name='on' type='date' label="Pick date to" className='datepickertill' icon='date_range'  data-value={today}/>
+                    <Row>
+                    <Input s={4} label="Telephone" validate type='tel'><Icon>phone</Icon></Input>
+                    </Row>
+                    <Row>
+                    <Input s={7} label='Ostanati baranja' type='textarea' />
+                    </Row>
+
+                    <Row>
+                    <Button waves='light' node='a' href='/user'> Make reservation</Button>
+                    </Row>
                 </form>
                 </Row>
             </div>

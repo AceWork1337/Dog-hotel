@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js'
+    
   },
   module: {
     rules: [
@@ -42,10 +43,10 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpg|gif|svg|ico)$/,
+        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {}
           }
         ]
