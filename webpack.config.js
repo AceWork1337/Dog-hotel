@@ -9,7 +9,7 @@ module.exports = {
     mode: 'production',
   entry: './client/index.js',
   output: {
-    path: path.resolve('dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js'
   },
   module: {
@@ -50,6 +50,10 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.(otf|eot|woff|woff2|ttf)$/,
+        loader: 'file-loader?limit=30000&name=[name]-[hash].[ext]'
+      }
       // {
       //   test: /\.(ico)?$/,
       //   loaders: [ 'file' ],
@@ -61,5 +65,8 @@ module.exports = {
   plugins: [HtmlWebpackPluginConfig],
   performance: {
     hints: process.env.NODE_ENV === 'production' ? "warning" : false
+  },
+  devServer: {
+    historyApiFallback: true,
   },
 }
