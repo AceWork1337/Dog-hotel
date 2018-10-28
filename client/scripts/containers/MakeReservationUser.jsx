@@ -7,7 +7,7 @@ import {Row,Input,Icon,Button,Autocomplete} from 'react-materialize';
 //import assets
 
 
-export default class Reservation extends React.Component {
+export default class MakeReservationUser extends React.Component {
     constructor(){
         super();
     //    this.handleDateChange = this.handleDateChange.bind(this);
@@ -57,20 +57,20 @@ export default class Reservation extends React.Component {
                         <option value='2'>Dva</option>
                         <option value='3'>Tri</option>
                     </Input>
-                    <Input s={3} name='on' type='date' label="Pick a birthday" className='datepicker' icon=' cake'  value={today}/>
                     </Row>
                     <Row>
                     <Input s={2} name='group1' type='radio' value='masko' label='mashko' className='with-gap' />
                     <Input s={2} name='group1' type='radio' value='zensko' label='zensko' className='with-gap' />
                     </Row>
-                    <Input s={3} name='on'label="Pick date from" type='date' className='datepicker'icon='date_range'  onChange={this.ace} data-value={today}/>
-                    <Input s={3} name='on' type='date' label="Pick date to" className='datepickertill' icon='date_range'  data-value={today}/>
+                    <Input s={3} name='on'label="Pick date from" type='date' className='datepicker'icon='date_range'  onChange={this.ace} value={today}/>
+                    <Input s={3} name='on' type='date' label="Pick date to" className='datepickertill' icon='date_range'  value={today}/>
                     <Row>
                     <Input s={4} label="Telephone" validate type='number'><Icon>phone</Icon></Input>
                     </Row>
                     <Row>
                     <Input s={7} label='Ostanati baranja' type='textarea' />
                     </Row>
+                    <Input s={3} name='on' type='date' label="Pick a birthday" className='datepicker' icon=' cake'  value={today}/>
 
                     <Row>
                     <Button waves='light' node='a' href='/user'> Make reservation</Button>

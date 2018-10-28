@@ -24,22 +24,24 @@ export default class AdminPanel extends React.Component {
                         <Col s={2}>
                            
                             <SideNav
-                            trigger={<Button>SIDE NAV DEMO</Button>}
+                            trigger={<Button>Admin menu</Button>}
                             options={{ closeOnClick: true }}
                             >
                             <SideNavItem userView
                                 user={{
-                                name: 'John Doe',
-                                email: 'jdandturk@gmail.com'
+                                    background: require('../../styles/assets/img/samojed.jpeg'),
+                                    image: require('../../styles/assets/img/samojed.jpeg'),
+                                    name: 'John Doe',
+                                    email: 'jdandturk@gmail.com'
                                 }}
                             />
                             {/* <SideNavItem  icon='cloud'><Link to='#!icon'/>First Link With Icon</SideNavItem> */}
-                            <SideNavItem ><NavLink exact to='/admin/present'>Second Link</NavLink></SideNavItem>
-                            <SideNavItem ><NavLink exact to='/admin/past'>ond Link</NavLink></SideNavItem>
-                            <SideNavItem ><NavLink exact to='/admin/reservation'>ecd Link</NavLink></SideNavItem>
+                            <SideNavItem ><NavLink exact to='/admin/present'>Prisutni milenici</NavLink></SideNavItem>
+                            <SideNavItem ><NavLink exact to='/admin/past'>Milenici koi go poseitse gotelot</NavLink></SideNavItem>
+                            <SideNavItem ><NavLink exact to='/admin/reservation'>Rezervacii</NavLink></SideNavItem>
                             <SideNavItem divider />
-                            <SideNavItem subheader>Subheader</SideNavItem>
-                            <SideNavItem waves href='#!third'>Third Link With Waves</SideNavItem>
+                            <SideNavItem subheader>Tekovni</SideNavItem>
+                            <SideNavItem waves ><NavLink exact to='/admin/bill'>Presmetka</NavLink></SideNavItem>
                             </SideNav>
                         </Col>
                         <Col s={10}>

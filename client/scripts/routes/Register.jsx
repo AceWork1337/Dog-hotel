@@ -19,7 +19,7 @@ export default class Register extends React.Component {
                     <Input s={6} label="User Name" ><Icon>person</Icon></Input>
                     <Input type="password" label="password" s={6} ><Icon>lock</Icon></Input>
                     <Input type="email" label="Email" s={6} ><Icon>email</Icon></Input>
-                    <Input s={6} label="Telephone" validate type='tel'><Icon>phone</Icon></Input>
+                    <Input s={6} label="Telephone" validate type='number'><Icon>phone</Icon></Input>
                     <Button waves='light' node='a' href='/login'> Register</Button>
                 </form>
                 </Row>
