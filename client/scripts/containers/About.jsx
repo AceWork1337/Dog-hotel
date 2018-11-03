@@ -6,11 +6,11 @@ import React from 'react';
 //import assets
 
 
-export default class Contact extends React.Component {
+export default class About extends React.Component {
     render(){
         return(
-            <div>
-                contact
+            <div id="about">
+                about
             </div>
         );
     }

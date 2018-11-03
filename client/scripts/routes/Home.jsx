@@ -3,6 +3,19 @@ import React from 'react';
 // import {Carousel,} from 'react-bootstrap';
 import { Slider, Slide } from 'react-materialize';
 //import components and containers
+// import Home from '../routes/Home.jsx';
+// import UserProfile from '../routes/UserProfile.jsx';
+// import AdminPanel from '../routes/AdminPanel.jsx';
+// import Reservation from '../routes/Reservation.jsx';
+import About from '../containers/About.jsx';
+import Rooms from '../containers/Rooms.jsx';
+// import NotFound from '../routes/404.jsx';
+// import Login from '../routes/Login.jsx';
+// import Register from '../routes/Register.jsx';
+// import Header from '../components/Header.jsx';
+import Faq from '../containers/Faq.jsx';
+import Training from '../containers/Training.jsx';
+import Contact from '../containers/Contact.jsx';
 
 //import assets
 import SamoyedWall from '../../styles/assets/img/SamoyedWall.jpg';
@@ -34,7 +47,7 @@ export default class Home extends React.Component {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel> */}
-                <Slider >
+                <Slider id="topMedia">
                     <Slide
                         src={SamoyedWall}
                         title="This is our big Tagline!">
@@ -54,6 +67,12 @@ export default class Home extends React.Component {
                         Here's our small slogan.
                     </Slide>
                 </Slider>
+                <About/>
+                <Rooms/>
+                <Training/>
+                <Faq/>
+                <Contact/>
+
             </div>
         );
     }

@@ -6,11 +6,11 @@ import React from 'react';
 //import assets
 
 
-export default class About extends React.Component {
+export default class Rooms extends React.Component {
     render(){
         return(
-            <div>
-                about
+            <div id="rooms">
+                accommodation
             </div>
         );
     }

@@ -7,15 +7,19 @@ import {BrowserRouter,Route , Switch} from 'react-router-dom';
 
 //import components and containers
 import Home from '../routes/Home.jsx';
+import Rooms from '../containers/Rooms.jsx';
 import UserProfile from '../routes/UserProfile.jsx';
 import AdminPanel from '../routes/AdminPanel.jsx';
 import Reservation from '../routes/Reservation.jsx';
-import About from '../routes/About.jsx';
-import Contact from '../routes/Contact.jsx';
+import About from '../containers/About.jsx';
+import Contact from '../containers/Contact.jsx';
 import NotFound from '../routes/404.jsx';
 import Login from '../routes/Login.jsx';
 import Register from '../routes/Register.jsx';
 import Header from '../components/Header.jsx';
+import Faq from '../containers/Faq.jsx';
+import Training from '../containers/Training.jsx';
+
 import '../../styles/routes/App.scss';
 
 // import { render } from 'react-dom';
@@ -92,13 +96,16 @@ constructor(props) {
                 {/* <Favicon url={require("../styles/assets/img/favicon/favicon.ico")}/> */}
                 <Header/> 
                 <Switch>
+                  <Route  path="/train" component={Training}/>
+                  <Route  path="/faq" component={Faq}/>
                   <Route  path="/user" component={UserProfile}/>
                   <Route  path="/reg" component={Register}/>
-                  <Route  path="/admin" component={AdminPanel}/>
+                  <Route  path="/admin" exact component={AdminPanel}/>
                   <Route  path="/contact" component={Contact}/>
                   <Route  path="/res" exact component={Reservation}/>
-                  <Route  path="/About" component={About}/>
+                  <Route  path="/About" exact component={About}/>
                   <Route  path="/login" component={Login}/>
+                  <Route  path="/accommodation" exact component={Rooms}/>
                   <Route  path="/" exact component={Home}/>
                   <Route  component={NotFound}/>
                 </Switch>
