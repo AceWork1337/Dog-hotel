@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Transaction
+  p Welcome to Transaction
+  form(method="get" name="insertname" action="users/send")
+    label #{ime}
+      br
+      p you have:
+      p #{balanse}
+      select(name="username" type="text")
+      br
+      label amount
+        br
+        input(name="email" type="email")
+
+      br
+      button(type='submit' name="send") send
+      

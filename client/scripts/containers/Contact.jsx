@@ -18,7 +18,7 @@ export default class Contact extends React.Component {
                     </Row>
                     <Row className="show-grid">
                         <Col lg={6}>
-                            <ContactMap/>
+                            {/* <ContactMap/> */}
                         </Col>
                         <Col lg={6}>
                             <ContactForm/>

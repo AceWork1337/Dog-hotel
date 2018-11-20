@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to Dashboard
+
+  form(method="post" name="insertname" action="users/editform" )
+    label #{ime}
+      br
+      br
+    label username
+      br
+      input(name="username" type="text" value='#{ime}')
+      br
+      label email
+        br
+        input(name="email" type="email" value='#{email}')
+        br
+      label password
+        br
+        input(name="password" type="password" value='#{password}')
+      br
+      button(type='submit') submit
+  a(href="dash")
+    button(id="back" type='Submit') back to profile

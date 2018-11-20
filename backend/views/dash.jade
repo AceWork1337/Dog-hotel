@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 Dashboard
+  p Welcome to Dashboard
+  form(method="post" name="insertname" action="users/log")
+    p User #{ime}
+    a(href="../editform") edit your accound
+    br
+    h3 balance: $ #{balance} ,00
+    h3 balance bitcoin:  #{bitcoin}
+    h3 balance ethereum :  #{ethereum}
+    br
+    button(id="out" type='logout') logout
+    br
+    br
+
+
+
+
+  a(href="balance1")
+    button(id="send" type='Submit') send money
+    br
+    br
+  a(href="buy")
+    button(id="buyMoney" type='Submit') buy
+

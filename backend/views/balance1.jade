@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  h1 Buy
+  p Welcome to Transaction
+
+
+
+  form(method="post" name="insertname" action="users/balance1")
+      label #{ime}
+        br
+
+        p Send to (pick user)
+
+        select(id="email" name="email")
+          each user in resu
+            option(value="#{user.email}") #{user.email}
+      br
+      br
+      label Your balance: $ #{balance} ,00
+      br
+      br
+      label sendDollars
+        br
+        input(name="amo" type="number")
+        br
+      label sendBitcoin
+          br
+          input(name="bit" type="number")
+          br
+      label sendEthereum
+          br
+          input(name="eth" type="number")
+          br
+          br
+      button(type='submit' name="send") send
+  a(href="dash")
+    button(id="back" type='Submit') back to profile
