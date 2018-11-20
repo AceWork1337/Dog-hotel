@@ -169,124 +169,133 @@ router.post('/balance1', function (req, res, next) {
     });
 });
 router.post('/buy', function (req, res, next) {
-    var priceSell = parseFloat(req.body.priceEth);
-    var coin = req.body.coin;
-    var amount = parseInt(req.body.amo);
 
-    model.connectToDb(function (dbo) {
-        model.findCurrencies2(coin,function (currenciesPair) {
-            //console.log(currenciesPair.coin1);
-            var email = req.session.eMail;
-        model.findUser(email, function (usersInfo) {
-            var myobj = {
-                email: usersInfo.email,
-                coin: currenciesPair.coin1,
-                amo: amount,
-                coins: currenciesPair.coin2,
-                priceSell: priceSell
-            };
-            console.log(myobj);
-                model.sortMarket(function (sorted) {
-                var match = [];
-                    for (var i in sorted) {
-                        var re = sorted[i];
-                        var arr = [re.coin, re.coins];
-                        var s = [myobj.coins, myobj.coin];
-                        match = arr.filter(function (e, pos) {
-                            return s[pos] === arr[pos];
-                        });
-                        if (match.length === 2) {
-                            if (coin === "eth/btc") {
-                                global.priceCound = amount / priceSell;
-                            }
-                            if(priceCound === re.priceSell || priceCound >= re.priceSell) {
-                                console.log("cenite odgovaraat");
-                                var email = req.session.eMail;
-                                model.findBalance(email, function (userBalance) {
-                                    var myobj = {
-                                        email: userBalance.email,
-                                        balance: userBalance.balance,
-                                        bitcoin: userBalance.bitcoin,
-                                        ethereum: userBalance.ethereum
-                                    };
 
-                                    userBalance.bitcoin = parseFloat(userBalance.bitcoin - amount);
-                                    var newBitcoin = userBalance.bitcoin;
-                                    userBalance.ethereum = parseFloat(userBalance.ethereum + priceCound);
-                                    var newEthereum = userBalance.ethereum;
-                                    var newdat = {
-                                        email: userBalance.email,
-                                        balance: userBalance.balance,
-                                        bitcoin: newBitcoin,
-                                        ethereum: newEthereum
-                                    };
-                                    dbo.collection("usersBalance").update(myobj, newdat, function (err, userBalance) {
-                                        if (err) {
-                                            console.log(err);
-                                        }
-                                        console.log("1 document updated");
-                                    });
-                                });
-                                var email1 = re.email;
-                                global.amoo = re.amo;
-                                model.findBalance(email1, function (userBalance) {
-                                    var myobj1 = {
-                                        email: userBalance.email,
-                                        balance: userBalance.balance,
-                                        bitcoin: userBalance.bitcoin,
-                                        ethereum: userBalance.ethereum
-                                    };
-                                    //console.log(myobj);
-                                    //var newBalance = userBalance.balance = userBalance.balance + amo;
-                                    userBalance.bitcoin = parseFloat(userBalance.bitcoin + amoo);
-                                    var newBitcoin = userBalance.bitcoin;
-                                    userBalance.ethereum = parseFloat(userBalance.ethereum - priceCound);
-                                    var newEthereum = userBalance.ethereum;
-                                    var newdat = {
-                                        email: userBalance.email,
-                                        balance: userBalance.balance,
-                                        bitcoin: newBitcoin,
-                                        ethereum: newEthereum
-                                    };
-                                    dbo.collection("usersBalance").update(myobj1, newdat, function (err, userBalance) {
-                                        if (err) {
-                                            console.log(err);
-                                        }
-                                        console.log("1 document updated");
-                                    });
-                                    console.log("odgovaraat");
-                                });
-                                var myquery = {_id: re._id};
-                                dbo.collection('market').deleteOne(myquery, function (err, obj) {
-                                    if (err) throw err;
-                                    console.log("izbrishan prv");
-                                });
-                                var myquery1 = {_id: myobj._id};
-                                dbo.collection('market').deleteOne(myquery1, function (err, obj) {
-                                    if (err) throw err;
-                                    console.log("izbrishan vtor");
+        let cbFunc = (data) => {
+            console.log(data); 
+            res.send(data)
+        };
 
-                                });
-                                break;
-                            }else{
-                                //console.log(myobj);
-                                dbo.collection("market").insertOne(myobj, function (err, usersInfo) {
-                                    console.log("buy placed");
-                                });
-                            }
-                        }else {
-                            //console.log(myobj);
-                            dbo.collection("market").insertOne(myobj, function (err, usersInfo) {
-                                console.log("buy placed");
-                            });
-                            }
+        model.findAllUsers(cbFunc);
 
-                    }
-                });
-            });
-        });
-        });
-    res.redirect('../buy');
+    // var priceSell = parseFloat(req.body.priceEth);
+    // var coin = req.body.coin;
+    // var amount = parseInt(req.body.amo);
+
+    // model.connectToDb(function (dbo) {
+    //     model.findCurrencies2(coin,function (currenciesPair) {
+    //         //console.log(currenciesPair.coin1);
+    //         var email = req.session.eMail;
+    //     model.findUser(email, function (usersInfo) {
+    //         var myobj = {
+    //             email: usersInfo.email,
+    //             coin: currenciesPair.coin1,
+    //             amo: amount,
+    //             coins: currenciesPair.coin2,
+    //             priceSell: priceSell
+    //         };
+    //         console.log(myobj);
+    //             model.sortMarket(function (sorted) {
+    //             var match = [];
+    //                 for (var i in sorted) {
+    //                     var re = sorted[i];
+    //                     var arr = [re.coin, re.coins];
+    //                     var s = [myobj.coins, myobj.coin];
+    //                     match = arr.filter(function (e, pos) {
+    //                         return s[pos] === arr[pos];
+    //                     });
+    //                     if (match.length === 2) {
+    //                         if (coin === "eth/btc") {
+    //                             global.priceCound = amount / priceSell;
+    //                         }
+    //                         if(priceCound === re.priceSell || priceCound >= re.priceSell) {
+    //                             console.log("cenite odgovaraat");
+    //                             var email = req.session.eMail;
+    //                             model.findBalance(email, function (userBalance) {
+    //                                 var myobj = {
+    //                                     email: userBalance.email,
+    //                                     balance: userBalance.balance,
+    //                                     bitcoin: userBalance.bitcoin,
+    //                                     ethereum: userBalance.ethereum
+    //                                 };
+
+    //                                 userBalance.bitcoin = parseFloat(userBalance.bitcoin - amount);
+    //                                 var newBitcoin = userBalance.bitcoin;
+    //                                 userBalance.ethereum = parseFloat(userBalance.ethereum + priceCound);
+    //                                 var newEthereum = userBalance.ethereum;
+    //                                 var newdat = {
+    //                                     email: userBalance.email,
+    //                                     balance: userBalance.balance,
+    //                                     bitcoin: newBitcoin,
+    //                                     ethereum: newEthereum
+    //                                 };
+    //                                 dbo.collection("usersBalance").update(myobj, newdat, function (err, userBalance) {
+    //                                     if (err) {
+    //                                         console.log(err);
+    //                                     }
+    //                                     console.log("1 document updated");
+    //                                 });
+    //                             });
+    //                             var email1 = re.email;
+    //                             global.amoo = re.amo;
+    //                             model.findBalance(email1, function (userBalance) {
+    //                                 var myobj1 = {
+    //                                     email: userBalance.email,
+    //                                     balance: userBalance.balance,
+    //                                     bitcoin: userBalance.bitcoin,
+    //                                     ethereum: userBalance.ethereum
+    //                                 };
+    //                                 //console.log(myobj);
+    //                                 //var newBalance = userBalance.balance = userBalance.balance + amo;
+    //                                 userBalance.bitcoin = parseFloat(userBalance.bitcoin + amoo);
+    //                                 var newBitcoin = userBalance.bitcoin;
+    //                                 userBalance.ethereum = parseFloat(userBalance.ethereum - priceCound);
+    //                                 var newEthereum = userBalance.ethereum;
+    //                                 var newdat = {
+    //                                     email: userBalance.email,
+    //                                     balance: userBalance.balance,
+    //                                     bitcoin: newBitcoin,
+    //                                     ethereum: newEthereum
+    //                                 };
+    //                                 dbo.collection("usersBalance").update(myobj1, newdat, function (err, userBalance) {
+    //                                     if (err) {
+    //                                         console.log(err);
+    //                                     }
+    //                                     console.log("1 document updated");
+    //                                 });
+    //                                 console.log("odgovaraat");
+    //                             });
+    //                             var myquery = {_id: re._id};
+    //                             dbo.collection('market').deleteOne(myquery, function (err, obj) {
+    //                                 if (err) throw err;
+    //                                 console.log("izbrishan prv");
+    //                             });
+    //                             var myquery1 = {_id: myobj._id};
+    //                             dbo.collection('market').deleteOne(myquery1, function (err, obj) {
+    //                                 if (err) throw err;
+    //                                 console.log("izbrishan vtor");
+
+    //                             });
+    //                             break;
+    //                         }else{
+    //                             //console.log(myobj);
+    //                             dbo.collection("market").insertOne(myobj, function (err, usersInfo) {
+    //                                 console.log("buy placed");
+    //                             });
+    //                         }
+    //                     }else {
+    //                         //console.log(myobj);
+    //                         dbo.collection("market").insertOne(myobj, function (err, usersInfo) {
+    //                             console.log("buy placed");
+    //                         });
+    //                         }
+
+    //                 }
+    //             });
+    //         });
+    //     });
+    //     });
+    // res.redirect('../buy');
     });
 router.post('/sell', function (req, res, next) {
 

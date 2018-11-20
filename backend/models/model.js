@@ -22,6 +22,21 @@ var model = {
             })
         })
     },
+    findAllUsers: function (callback) {
+        model.connectToDb(function (dbo) {
+
+            dbo.collection("users").find().toArray( function (err,db) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Data obtained");
+                    callback(db)
+                }
+            })
+        })
+    },
+   
+
     findBalance: function (email, callback) {
         model.connectToDb(function (dbo) {
             dbo.collection("usersBalance").findOne({email: email}, function (err, userBalance) {
