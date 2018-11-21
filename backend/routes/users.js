@@ -1,87 +1,137 @@
 var express = require('express');
 var router = express.Router();
-let app = router;
+// let app = router;
 var model = require("../models/model");
 
-app.post('/register', function (req, res) {
-
+router.post('/register', function (req, res) {
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
+    var phone = parseInt(req.body.phone);
     console.log(username);
-
-    // var balance = parseInt(req.body.balance);
-    // var bitcoin = parseInt(req.body.bitcoin);
-    // var ethereum = parseInt(req.body.ethereum);
     model.connectToDb(function (dbo) {
-        var myobj = {name: username, email: email, password: password};
-        // var myobjBalance = {email: email, balance: balance, bitcoin: bitcoin, ethereum: ethereum};
+        var myobj = {firstName:firstName, lastName:lastName, username: username, email: email, password: password, phone:phone };
         model.findUser(email, function (usersInfo) {
+            console.log(usersInfo);
             if (usersInfo === null) {
                 dbo.collection("users").insertOne(myobj, function (err, usersInfo) {
                     console.log("User created");
+                    res.send('User created');
                 });
-                // dbo.collection("usersBalance").insertOne(myobjBalance, function (err, userBalance) {
-                //     console.log("Balance created");
-                //     res.redirect('../log');
-                // });
             } else {
-                res.send('User created');
+                res.send('User already created');
                 console.log("User already created");
             }
         });
-        //dbo.collection("users").findOne({email: email}, function (err, usersInfo) {
-
-        //});
     });
-    //res.send('User are created');
 });
-router.post('/log', function (req, res, next) {
+router.post('/log', function (req, res) {
     var eMail = req.body.email;
     var passwordlog = req.body.password;
     model.connectToDb(function (dbo) {
         var myobjlog = {email: eMail, password: passwordlog};
         model.findUser(eMail, function (usersInfo) {
-        //dbo.collection("users").findOne({email: eMail}, function (err, usersInfo) {
+            dbo.collection("users").findOne({email: eMail}, function (err, usersInfo) {
 
-            console.log(usersInfo);
-            if (usersInfo === null) {
-                res.redirect('../log');
-            } else {
-                if (usersInfo.email === eMail) {
-                    //session
-                    req.session.eMail = eMail;
-                    req.session.passwordlog = passwordlog;
-                    res.redirect('../dash');
+                console.log(usersInfo);
+                if (usersInfo === null) {
+                    // res.redirect('../log');
+                    res.send('Userot nepostoi');
+                } else {
+                    if (usersInfo.email === eMail && usersInfo.password === passwordlog) {
+                        //session
+                        req.session.eMail = eMail;
+                        req.session.passwordlog = passwordlog;
+                        res.send('uspeshen login');
+                    } else {
+                        res.send('pogreshen email ili password');
+                    }
                 }
-            }
-        });
-
-    });
-});
-router.post('/editform', function (req, res) {
-    var email = req.session.eMail;
-    model.connectToDb(function (dbo) {
-        model.findUser(email, function (usersInfo) {
-            var newmail = req.body.email;
-            var newname = req.body.username;
-            var newpassword = req.body.password;
-            var myobj = {name: usersInfo.name, email: usersInfo.email, password: usersInfo.password};
-            var newdat = {name: newname, email: newmail, password: newpassword};
-            console.log(newdat);
-            var ime = usersInfo.name;
-            console.log(ime);
-            dbo.collection("users").update(myobj, newdat, function (err, res) {
-                if (err) {
-                    console.log(err);
-                }
-                console.log("1 document updated");
             });
 
         });
     });
-    res.redirect('../editform');
 });
+
+router.post('/reservation', function (req, res) {
+    var email = req.session.eMail;
+    model.connectToDb(function (dbo) {
+        model.findUser(email, function (usersInfo) {
+            var reservationEmail = usersInfo.email;
+            var reservationFirstName = usersInfo.firstName;
+            var reservationUserPhone = usersInfo.phone;
+
+            var reservationBreeds = req.body.breeds;
+            var reservationQuantity = parseInt(req.body.quantity);
+            var reservationSex = req.body.sex;
+            var reservationPickDateTo = req.body.PickDateTo;
+            var reservationPickDateFrom = req.body.PickDateFrom;
+            var reservationPhone = parseInt(req.body.Phone);
+            var reservationRequirements = req.body.Requirements;
+            var reservationBirthdayDog = req.body.BirthdayDog;
+
+            var myobj = {
+                firstName:reservationFirstName, email: reservationEmail, user_phone: reservationUserPhone,
+                breeds: reservationBreeds, quantity: reservationQuantity, sex: reservationSex, 
+                PickDateTo: reservationPickDateTo, PickDateFrom: reservationPickDateFrom, 
+                Phone: reservationPhone, Requirements: reservationRequirements, BirthdayDog: reservationBirthdayDog
+            };
+            if (reservationBreeds == null || reservationQuantity == null || reservationSex == null || reservationPickDateTo == null ||  
+                reservationPickDateFrom == null || reservationPhone == null || reservationRequirements == null || reservationBirthdayDog == null ) {
+                console.log("vnesetegi site polinja");
+                res.send('Vnesetegi site polinja');
+            } else {
+                dbo.collection("reservations").insertOne(myobj, function (err, usersInfo) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                    console.log("reservation created");
+                    res.send('reservation created');
+                    }
+                });
+            }
+        });
+    });
+});
+
+router.post('/editform', function (req, res) {
+    var email = req.session.eMail;
+    model.connectToDb(function (dbo) {
+        model.findUser(email, function (usersInfo) {
+            var newFirstName = req.body.firstName;
+            var newLastName = req.body.lastName;
+            var newemail = req.body.email;
+            var newUserName = req.body.username;
+            var newPassword = req.body.password;
+            var newPhone = parseInt(req.body.phone);
+            if (newFirstName == null || newLastName == null || newemail == null || newUserName == null ||  newPassword == null || newPhone == null) {
+                console.log("vnesetegi site polinja");
+                res.send('Vnesetegi site polinja');
+            } else {
+                console.log("vleze");
+                var myobj = {name: usersInfo.name, email: usersInfo.email, password: usersInfo.password, firstName: usersInfo.firstName, lastName: usersInfo.lastName, phone: usersInfo.phone};
+                var newdat = {name: newUserName, email: newemail, password: newPassword, firstName: newFirstName, lastName: newLastName, phone: newPhone};
+                // console.log("vnesetegi site polinja");
+                console.log(newdat);
+                // var ime = usersInfo.name;
+                // console.log(ime);
+                dbo.collection("users").update(myobj, newdat, function (err, res) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log("1 document updated");
+                });
+                res.send('update user :)');
+                console.log(usersInfo);
+            }
+        });
+    });
+    
+});
+
+
 router.post('/dash', function (req, res) {
     req.session = null;
     if (req.session === null) {
