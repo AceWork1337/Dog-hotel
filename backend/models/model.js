@@ -48,6 +48,17 @@ var model = {
             })
         })
     },
+    findUserReservations: function (email, callback) {
+        model.connectToDb(function (dbo) {
+            dbo.collection("reservations").find({email: email}).toArray( function (err, userReservations) {
+                if (err) {
+                    console.log(err);
+                }
+                //console.log(resu);
+                callback(userReservations)
+            })
+        })
+    },
     findCurrencies: function (callback) {
         model.connectToDb(function (dbo) {
             dbo.collection("Cryptocurrencies").find({},{_id: 0, name: 1}).toArray(function(err,currenciesPair) {

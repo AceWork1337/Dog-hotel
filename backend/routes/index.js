@@ -101,46 +101,6 @@ router.get('/register', function(req, res, next) {
 });
 
 
-// var app = express();
-// var model = require("../models/model");
-
-// let app = router;
-// app.post('/register', function (req, res) {
-
-//     var username = req.body.username;
-//     var email = req.body.email;
-//     var password = req.body.password;
-//     console.log(req.body);
-
-//     // var balance = parseInt(req.body.balance);
-//     // var bitcoin = parseInt(req.body.bitcoin);
-//     // var ethereum = parseInt(req.body.ethereum);
-//     model.connectToDb(function (dbo) {
-//         var myobj = {name: username, email: email, password: password};
-//         // var myobjBalance = {email: email, balance: balance, bitcoin: bitcoin, ethereum: ethereum};
-//         model.findUser(email, function (usersInfo) {
-//             // if (usersInfo === null) {
-//                 dbo.collection("users").insertOne(myobj, function (err, usersInfo) {
-//                     console.log("User created");
-//                     res.send('User  created');
-//                 // });
-//                 // dbo.collection("usersBalance").insertOne(myobjBalance, function (err, userBalance) {
-//                 //     console.log("Balance created");
-//                 //     res.redirect('../log');
-//                 // });
-//             // } else {
-//                 // res.send('User  already created');
-//                 // console.log("User already created");
-//             // }
-//         });
-//         //dbo.collection("users").findOne({email: email}, function (err, usersInfo) {
-
-//         //});
-//     });
-//     //res.send('User are created');
-// });
-
-// });
 
 // router.get('/editform', function(req, res, next) {
 //     var email=req.session.eMail;
@@ -161,14 +121,18 @@ router.get('/register', function(req, res, next) {
 // router.get('/home', function(req, res, next) {
 //     res.render('home', { title: 'Express' });
 // });
-router.get('/dash', function(req, res, next) {
+router.get('/userreservations', function(req, res, next) {
     var email=req.session.eMail;
     // console.log(email);
-    // if (req.session.eMail === null){
-        // res.redirect('../log');
-    // }else {
+    if (req.session.eMail === null){
+        res.send('prvo logirajse');
+    }else {
         console.log(req.session.eMail);
-        model.findUser(email, function (usersInfo) {
+        model.connectToDb(function(dbo){
+            model.findUser(email,function(usersInfo){
+        model.findUserReservations(email, function (userReservations) {
+            console.log(userReservations);
+            // model.connectToDb(function (dbo) {});
             // model.findBalance(email, function (userBalance) {
             //     console.log("userinfo");
             //     console.log(usersInfo);
@@ -182,13 +146,48 @@ router.get('/dash', function(req, res, next) {
             //         ethereum: userBalance.ethereum
             //     });
             // });
-            res.render('dash')
+            res.send({userReservations});
         });
-
+    });
         //console.log("dddd");
 
-    // }
+    });
     //res.render('logout', { title: 'Express' });
+}
 });
+router.get('/userinfo', function (req,res){
+    var email=req.session.eMail;
+
+    if (email !== null) {
+        model.findUser(email, function(userinfo){
+            res.send(userinfo);
+        });
+    }
+});
+// router.get('/balance1', function(req, res, next) {
+//     var email=req.session.eMail;
+//     var listOfEmail = [];
+//     model.connectToDb(function(dbo){
+//         model.findUser(email,function(usersInfo){
+//             model.findBalance(email,function(userBalance){
+//                 model.getALL(function(resu){
+//             // for (var i = 0; i < resu.length; i++) {
+//             //
+//             //     listOfEmail.push(resu[i]["email"]);
+//             // }
+//             //console.log(result);
+//             //console.log(resu);
+//                     //console.log(resul);
+//         res.render('balance1', {
+//             title: 'Express',
+//             resu: resu ,
+//             balance: userBalance.balance,
+//             result: "result",
+//             ime:usersInfo.name});
+//                 });
+//             });
+//         });
+//     });
+// });
 module.exports = router;
 
