@@ -3,7 +3,7 @@ var router = express.Router();
 var model = require("../models/model");
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
-
+var api = express();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.send(console.log('ace'));
@@ -163,6 +163,18 @@ router.get('/userinfo', function (req,res){
             res.send(userinfo);
         });
     }
+});
+
+router.get('/allusers', function(req,res){
+    model.findAllUsers(function(dbo){
+        res.send(dbo);
+    })
+});
+
+router.get('/allreservations', function(req,res){
+    model.findAllReservations(function(dbo){
+        res.send(dbo);
+    })
 });
 // router.get('/balance1', function(req, res, next) {
 //     var email=req.session.eMail;

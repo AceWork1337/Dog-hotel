@@ -131,6 +131,64 @@ router.post('/editform', function (req, res) {
     
 });
 
+router.post('/contactform', function (req, res) {
+    var firstName = req.body.firstName;
+    var email = req.body.email;
+    var phone = parseInt(req.body.phone);
+    var textbox = req.body.textbox;
+    model.connectToDb(function (dbo) {
+        var myobj = {firstName:firstName, email: email, phone:phone, textbox: textbox };
+        dbo.collection("contact-form").insert(myobj, function(err){
+            if (err) {
+                console.log(err);
+            } else {
+                res.send("contact porakata e pratena");
+            }
+        })
+    });
+});
+
+
+router.post('/presentpets', function (req, res) {
+    var email = req.session.eMail;
+    model.connectToDb(function (dbo) {
+        // model.findUser(email, function (usersInfo) {
+            var adminInputEmail = req.body.email;
+            var adminInputFirstName = req.body.firstName;
+            // var adminInputUserPhone = req.body.phone;
+
+            var adminInputBreeds = req.body.breeds;
+            var adminInputQuantity = parseInt(req.body.quantity);
+            var adminInputSex = req.body.sex;
+            var adminInputPickDateTo = req.body.PickDateTo;
+            var adminInputPickDateFrom = req.body.PickDateFrom;
+            var adminInputPhone = parseInt(req.body.Phone);
+            var adminInputRequirements = req.body.Requirements;
+            var adminInputBirthdayDog = req.body.BirthdayDog;
+
+            var myobj = {
+                firstName:adminInputFirstName, email: adminInputEmail,/* user_phone: adminInputUserPhone,*/
+                breeds: adminInputBreeds, quantity: adminInputQuantity, sex: adminInputSex, 
+                PickDateTo: adminInputPickDateTo, PickDateFrom: adminInputPickDateFrom, 
+                Phone: adminInputPhone, Requirements: adminInputRequirements, BirthdayDog: adminInputBirthdayDog
+            };
+            // if (reservationBreeds == null || reservationQuantity == null || reservationSex == null || reservationPickDateTo == null ||  
+            //     reservationPickDateFrom == null || reservationPhone == null || reservationRequirements == null || reservationBirthdayDog == null ) {
+            //     console.log("vnesetegi site polinja");
+            //     res.send('Vnesetegi site polinja');
+            // } else {
+                dbo.collection("presentpets").insertOne(myobj, function (err, usersInfo) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                    console.log("admin input created");
+                    res.send('admin input created');
+                    }
+                });
+            // }
+        // });
+    });
+});
 
 
 

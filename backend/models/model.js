@@ -35,6 +35,19 @@ var model = {
             })
         })
     },
+    findAllReservations: function (callback) {
+        model.connectToDb(function (dbo) {
+
+            dbo.collection("reservations").find().toArray( function (err,db) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Data obtained");
+                    callback(db)
+                }
+            })
+        })
+    },
    
 
     findBalance: function (email, callback) {

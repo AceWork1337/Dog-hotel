@@ -15,7 +15,14 @@ var app = express();
 var cookieSession = require('cookie-session')
 
 //app.use(session({secret: 'ssshhhhh'}));
+const cors = require('cors');
 
+//app.use(cors());
+
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true
+}));
 
 app.use(cookieSession({
     name: 'session',
@@ -40,6 +47,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/', users);
+
+
+
 
 app.listen(3001)
 // catch 404 and forward to error handler
