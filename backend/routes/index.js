@@ -6,7 +6,8 @@ var url = "mongodb://localhost:27017/";
 var api = express();
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send(console.log('ace'));
+    var log = req.session.al;
+  res.send("log");
 });
 // router.get('/balance1', function(req, res, next) {
 //     var email=req.session.eMail;

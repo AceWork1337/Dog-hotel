@@ -41,15 +41,15 @@ export default class Register extends React.Component {
         let user =JSON.stringify( {
           username: this.state.username,
           firstName: this.state.firstName,
-        //   lastName: this.state.lastname,
-        //   email: this.state.email,
-        //   password: this.state.password,
-        //   phone: this.state.phone,
+          lastName: this.state.lastname,
+          email: this.state.email,
+          password: this.state.password,
+          phone: this.state.phone,
 
         });
           
         console.log(user)
-        axios.post(`http://localhost:3001/register`, {data:user},{headers:{'Content-Type':'application/json'}})
+        axios.post(`http://localhost:3001/register`, user,{headers:{'Content-Type':'application/json'}})
           .then(res => {
             console.log(res);
             console.log(res.data);
@@ -57,30 +57,30 @@ export default class Register extends React.Component {
       }
     render(){
         return(
-            // <div>
-            //     <Row>
-            //     <form onSubmit={this.handleSubmit}>
-            //         <Input s={6} label="First Name" name="firstName"><Icon>account_circle</Icon></Input>
-            //         <Input s={6} label="Last Name" name="lastName"/>
-            //         <Input s={6} label="User Name" name="username"><Icon>person</Icon></Input>
-            //         <Input type="password" label="password" name="password" s={6} ><Icon>lock</Icon></Input>
-            //         <Input type="email" label="Email" name="email" s={6} ><Icon>email</Icon></Input>
-            //         <Input s={6} label="Telephone" name="phone" validate type='number'><Icon>phone</Icon></Input>
-            //         <Button waves='light' node='a' type="submit" href='/login'> Register</Button>
-            //     </form>
-            //     </Row>
-            // </div>
             <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Person Name:
-            <input type="text" name="username" onChange={this.handleChange.bind(this)} />
-            <input type="text" name="firstName" onChange={this.handleChange.bind(this)} />
+                <Row>
+                <form onSubmit={this.handleSubmit}>
+                    <Input s={6} type="text" label="First Name" name="firstName" onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
+                    <Input s={6} type="text" label="Last Name" name="lastName" onChange={this.handleChange.bind(this)}/>
+                    <Input s={6} type="text" label="User Name" name="username" onChange={this.handleChange.bind(this)}><Icon>person</Icon></Input>
+                    <Input type="password" label="password" name="password" s={6} onChange={this.handleChange.bind(this)} ><Icon>lock</Icon></Input>
+                    <Input type="email" label="Email" name="email" s={6} onChange={this.handleChange.bind(this)}><Icon>email</Icon></Input>
+                    <Input s={6} label="Telephone" name="phone" validate type='number'onChange={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
+                    <Button waves='light'  type="submit"  > <a href='/login'>Register</a></Button>
+                </form>
+                </Row>
+            </div>
+      //       <div>
+      //   <form onSubmit={this.handleSubmit}>
+      //     <label>
+      //       Person Name:
+      //       <input type="text" name="username" onChange={this.handleChange.bind(this)} />
+      //       <input type="text" name="firstName" onChange={this.handleChange.bind(this)} />
 
-          </label>
-          <button type="submit">Add</button>
-        </form>
-      </div>
+      //     </label>
+      //     <Button type="submit">Add</Button>
+      //   </form>
+      // </div>
         );
     }
 }

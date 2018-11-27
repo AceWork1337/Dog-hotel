@@ -45,9 +45,10 @@ router.post('/log', function (req, res) {
                         //session
                         req.session.eMail = eMail;
                         req.session.passwordlog = passwordlog;
-                        res.send('uspeshen login');
+                        req,session.al = true;
+                        res.send(true);
                     } else {
-                        res.send('pogreshen email ili password');
+                        res.send(false);
                     }
                 }
             });

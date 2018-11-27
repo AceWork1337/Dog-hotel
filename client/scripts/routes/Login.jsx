@@ -15,52 +15,63 @@ export default class Login extends React.Component {
         // this.handleChange = this.handleChange.bind(this);
     
         this.state = {
-          value: ''
-        };
-        // this.handleSubmit = this.handleSubmit.bind(this);
+         
+          username: '',
+          firstName: '',
+          lastName:'',
+          email:'',
+          password:'',
+          phone:'',
+          // islogin:false,
+        }
       }
-    
-    //   getValidationState() {
-    //     const length = this.state.value.length;
-    //     if (length > 10) return 'success';
-    //     else if (length > 5) return 'warning';
-    //     else if (length > 0) return 'error';
-    //     return null;
-    //   }
-    
-    //   handleChange(e) {
-    //     this.setState({ value: e.target.value });
-    //   }
-    // componentDidMount() {
-        //  blabla = function ace () {
-        // axios.post('http://localhost:3001/log', {
-        //     email: "acea@ace.com",
-        //     password: "ace"
-        //   })
-        //   .then(function (response) {
-        //       console.log("zivka");
-        //     console.log(response);
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //   });
-        // }
-
-        // handleSubmit(event) {
-        //     event.preventDefault();
-        //     const data = new FormData(event.target);
+      //   handleChange = event => {
+      //     this.setState({ username: event.target.value , firstName: event.target.value });
+      //     // this.setState({ firstName: event.target.value });
+      //     // this.setState({ lastName: event.target.value });
+      //     // this.setState({ email: event.target.value });
+      //     // this.setState({ password: event.target.value });
+      //     // this.setState({ phone: event.target.value });
+  
+  
+      //   }
+        handleChange(e) {
+          this.setState({ [e.target.name] : e.target.value });
+          console.log(e.target.name);
+          console.log(e.target.value);
+          console.log("ova se zivki");
+          console.log(this.state.username);
+          console.log(this.state.firstName);
+       }
+      //  handleS(dd) {
+      //   this.setState(this.state.islogin = dd);
+      //   console.log(this.state.islogin);
+      //  }
+        handleSubmit = event => {
+          event.preventDefault();
+      
+          let user =JSON.stringify( {
+            email: this.state.email,
+            password: this.state.password,
+  
+          });
             
-        //     fetch('http://localhost:3001/log', {
-        //       method: 'POST',
-        //       body: data,
-        //     })
-        //     .then(function (response) {
-        //               console.log("zivka");
-        //             console.log(response);
-        //           })
-        //   }
-    // }
+          console.log(user)
+          axios.post(`http://localhost:3001/log`, user,{headers:{'Content-Type':'application/json'}})
+            .then(res => {
+              console.log(res);
+              console.log(res.data);
+              let ace = res.data;
+              console.log(ace);
+              // this.setState(this.state.islogin = true);
+              // console.log(this.state.islogin);
+            })
+            // .then(this.handleS(this.ace)
+            // )
+        };
+        
       render() {
+        let islogin = this.res;
         return (
         //   <form>
         //     <FormGroup
@@ -85,9 +96,9 @@ export default class Login extends React.Component {
                 {/* <Input s={6} label="First Name" ><Icon>account_circle</Icon></Input> */}
                 {/* <Input s={6} label="Last Name" /> */}
 
-                <Input type="email" label="Email" s={12} ><Icon>email</Icon></Input>
-                <Input type="password" label="password" s={12} ><Icon>lock</Icon></Input>
-                <Button waves='light' node='a' href='/user' type="submit"> Log in</Button>
+                <Input type="email" label="Email" s={12} name="email" onChange={this.handleChange.bind(this)}><Icon>email</Icon></Input>
+                <Input type="password" label="password" s={12} name="password" onChange={this.handleChange.bind(this)}><Icon>lock</Icon></Input>
+                <Button waves='light'  href='/user' type="submit" > {islogin}<a href="/user">Log in</a></Button>
             </form>
             </Row>
         </div>
