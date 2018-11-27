@@ -68,6 +68,12 @@ module.exports = {
     hints: process.env.NODE_ENV === 'production' ? "warning" : false
   },
   devServer: {
-    historyApiFallback: true,
-  },
+    historyApiFallback: true
+},
+externals: {
+    // global app config object
+    config: JSON.stringify({
+        apiUrl: 'http://localhost:4000'
+    })
+}
 }

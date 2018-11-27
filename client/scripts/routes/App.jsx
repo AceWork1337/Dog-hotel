@@ -38,9 +38,15 @@ constructor(props) {
     // this.props.getCars()
     this.props.getNews();
     // this.props.carslist();
+<<<<<<< HEAD
+    fetch('http://127.0.0.1:8181/')
+    .then(response => response.json())
+    .then(json => console.log(json))
+=======
     // fetch('http://localhost:3001/allusers')
     // .then(response => response.json())
     // .then(json => console.log(json))
+>>>>>>> f37ff8dea3472dd9a916bb3b69c2028d0f73c23b
  
 };
 
