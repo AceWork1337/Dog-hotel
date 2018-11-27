@@ -1,10 +1,7 @@
 //import npm package
 import React from 'react';
-<<<<<<< HEAD
 // import GoogleMapReact from 'google-map-react';
-=======
 import {GoogleMapReact,AnyReactComponent} from 'google-map-react';
->>>>>>> f37ff8dea3472dd9a916bb3b69c2028d0f73c23b
 //import components and containers
 
 //import assets
@@ -17,13 +14,7 @@ export default class ContactMap extends React.Component {
     //       zoom: 8
     //     });
     //   }
-<<<<<<< HEAD
-    render(){
-        return(
-            <div>
-             {/* <div style={{ width: 500, height: 500 }} id="map" /> */}
-            </div>
-=======
+
       static defaultProps = {
         center: {
           lat: 41.00,
@@ -49,7 +40,6 @@ export default class ContactMap extends React.Component {
           />
         </GoogleMapReact>
       </div>
->>>>>>> f37ff8dea3472dd9a916bb3b69c2028d0f73c23b
         );
     }
 }
