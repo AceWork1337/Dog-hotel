@@ -12,6 +12,7 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/runtime": "^7.1.2",
     "animate.css": "^3.7.0",
+    "axios": "^0.18.0",
     "babel-plugin-react-flow-props-to-prop-types": "^0.15.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",

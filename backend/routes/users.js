@@ -27,6 +27,7 @@ router.post('/register', function (req, res) {
         });
     });
 });
+
 router.post('/log', function (req, res) {
     var eMail = req.body.email;
     var passwordlog = req.body.password;
@@ -147,7 +148,6 @@ router.post('/contactform', function (req, res) {
         })
     });
 });
-
 
 router.post('/presentpets', function (req, res) {
     var email = req.session.eMail;
