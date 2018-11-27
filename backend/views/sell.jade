@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1 Market
+  p Welcome to Market
+
+  form(method="post" name="insertname" action="users/buy")
+    label Buy bitcoin
+      br
+      input(name="bit" type="number")
+      br
+    label Price
+      br
+      input(name="priceBit" type="number")
+      br
+      br
+    label Buy ethereum
+      br
+      input(name="eth" type="number")
+      br
+    label Price
+      br
+      input(name="priceEth" type="number")
+      br
+      br
+      button(type='submit' name="buy") buy
+  a(href="dash")
+    button(id="back" type='Submit') back to profile

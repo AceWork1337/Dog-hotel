@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to sing up page
+  form(method="post" name="insertname" action="users/singup")
+    label username
+    br
+    input(name="username" type="text")
+    br
+    label email
+      br
+      input(name="email" type="email")
+      br
+    label password
+      br
+      input(name="password" type="password")
+    br
+    label balance
+      br
+      input(name="balance" type="number")
+      br
+      br
+    button(id="bu" type='submit') submit

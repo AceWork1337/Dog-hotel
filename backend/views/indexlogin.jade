@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to login in #{title}
+  form(method="post" name="insertname" action="users/log")
+
+    br
+    label email
+      br
+      input(name="email" type="email")
+      br
+    label password
+      br
+      input(name="password" type="password")
+    br
+    button(id="bu" type='login') login

@@ -43,7 +43,11 @@ import { put, takeLatest, all } from 'redux-saga/effects';
 
 function* fetchNews() {
 
+<<<<<<< HEAD
   const json = yield fetch('http://localhost:4000')
+=======
+  const json = yield fetch('http://localhost:3001/allusers')
+>>>>>>> f37ff8dea3472dd9a916bb3b69c2028d0f73c23b
     .then(response => response.json(), );
 
   yield put({ type: "NEWS_RECEIVED", json: json, });
