@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 // let app = router;
 var model = require("../models/model");
-
+var Cookies = require('cookies')
 router.post('/register', function (req, res) {
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
@@ -43,14 +43,25 @@ router.post('/log', function (req, res) {
                 } else {
                     if (usersInfo.email === eMail && usersInfo.password === passwordlog) {
                         //session
-                        req.session.eMail = eMail;
-                        req.session.passwordlog = passwordlog;
-                        req,session.al = true;
+                        // res.cookies.set( eMail,  eMail  )
+                        // res.cookie(eMail , eMail)
+                        // res.session.eMail = eMail;
+                        // res.session.passwordlog = passwordlog;
+                        // res.session.al = true;
+                        // console.log("Cookies :  ", req.cookies);
+                        // Cookies that have not been signed
+//                         console.log(eMail);
+//                         res.cookies.eMail=eMail;
+//   console.log('Cookies: ', res.cookies)
+
+  // Cookies that have been signed
+//   console.log('Signed Cookies: ', req.signedCookies)
                         res.send(true);
+                        
                     } else {
                         res.send(false);
                     }
-                }
+                } 
             });
 
         });

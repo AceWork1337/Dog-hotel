@@ -5,10 +5,23 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 var api = express();
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/home', function(req, res, next) {
+    
+    // req.session.email = req.param('eMail');
+    var email=req.cookies;
+    console.log(email)
     var log = req.session.al;
-  res.send("log");
-});
+    if (email !== null) {
+        model.findUser(email, function(userinfo){
+            // res.writeHead(200,{'Contgent-type':'application/json'});
+            console.log(userinfo);
+            var blagoj = [];
+            blagoj.push(userinfo);
+            console.log(blagoj);
+            res.send(blagoj);
+        });
+    } 
+}); 
 // router.get('/balance1', function(req, res, next) {
 //     var email=req.session.eMail;
 //     var listOfEmail = [];
@@ -154,7 +167,7 @@ router.get('/userreservations', function(req, res, next) {
 
     });
     //res.render('logout', { title: 'Express' });
-}
+} 
 });
 router.get('/userinfo', function (req,res){
     var email=req.session.eMail;

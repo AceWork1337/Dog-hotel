@@ -69,7 +69,9 @@ export default class Login extends React.Component {
             // .then(this.handleS(this.ace)
             // )
         };
-        
+        componentWillUpdate(){
+          sessionStorage.setItem('eMail', this.state.email);
+        }
       render() {
         let islogin = this.res;
         return (
