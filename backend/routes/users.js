@@ -42,12 +42,13 @@ router.post('/log', function (req, res) {
                     res.send('Userot nepostoi');
                 } else {
                     if (usersInfo.email === eMail && usersInfo.password === passwordlog) {
+                        console.log("vlegov")
                         //session
                         // res.cookies.set( eMail,  eMail  )
                         // res.cookie(eMail , eMail)
-                        // res.session.eMail = eMail;
-                        // res.session.passwordlog = passwordlog;
-                        // res.session.al = true;
+                        req.session.eMail = eMail;
+                        req.session.passwordlog = passwordlog;
+                        // req.session.al = true;
                         // console.log("Cookies :  ", req.cookies);
                         // Cookies that have not been signed
 //                         console.log(eMail);

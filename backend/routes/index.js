@@ -8,9 +8,13 @@ var api = express();
 router.get('/home', function(req, res, next) {
     
     // req.session.email = req.param('eMail');
-    var email=req.cookies;
+    // var email = [];
+    // email.push(req.Cookies);
+    var email = req.body.eMail;
+    // sessionStorage.getItem()
+    // var email =req.sessionStorage.getItem('eMail');
     console.log(email)
-    var log = req.session.al;
+    // var log = req.session.al;
     if (email !== null) {
         model.findUser(email, function(userinfo){
             // res.writeHead(200,{'Contgent-type':'application/json'});
