@@ -29,7 +29,7 @@ const store = createStore(
   reducer,
   applyMiddleware(sagaMiddleware, logger),
 );
-
+console.log(store.getState());
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
