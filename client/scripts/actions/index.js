@@ -27,7 +27,21 @@
         
 //     }
 // }
+// var payload = [{
+
+//       "email":"acea@ace.com",
+//       "login":"true"
+//     }];
+// var body = {
+//             email:"acea@ace.com",
+//             login:"true"
+//           }
+
 export const getNews = () => ({
     type: 'GET_NEWS',
+    // headers:{'Content-Type':'application/json'},
+    
+    
+
   });
-  
+  // getNews(this.body)

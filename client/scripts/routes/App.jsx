@@ -30,7 +30,9 @@ import {bindActionCreators} from 'redux';
 constructor(props) {
   super(props);
   this.state = {
-    news:''
+    news:'',
+    email:'acea@ace.com',
+    login:'true',
   };
 } 
   componentWillMount(){
@@ -123,6 +125,7 @@ constructor(props) {
   const mapStateToProps = (state) => {
     return {
       data: state.news,  
+      body: {email:state.email,login:state.login}
     }
   }
   const  mapDispatchToProps = (dispatch) => {
@@ -144,3 +147,4 @@ constructor(props) {
     // ...bindActionCreators(actionCreators, dispatch),
   // }
   export default connect(mapStateToProps,mapDispatchToProps)(App);
+  // export const getCart = state => state.email
