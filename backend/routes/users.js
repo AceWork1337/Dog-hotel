@@ -29,25 +29,25 @@ router.post('/register', function (req, res) {
 });
 
 router.post('/log', function (req, res) {
-    var eMail = req.body.email;
+    var email = req.body.email;
     var passwordlog = req.body.password;
     model.connectToDb(function (dbo) {
-        var myobjlog = {email: eMail, password: passwordlog};
-        model.findUser(eMail, function (usersInfo) {
-            dbo.collection("users").findOne({email: eMail}, function (err, usersInfo) {
+        var myobjlog = {email: email, password: passwordlog};
+        model.findUser(email, function (usersInfo) {
+            dbo.collection("users").findOne({email: email}, function (err, usersInfo) {
 
                 console.log(usersInfo);
                 if (usersInfo === null) {
                     // res.redirect('../log');
                     res.send('Userot nepostoi');
-                } else {
-                    if (usersInfo.email === eMail && usersInfo.password === passwordlog) {
-                        console.log("vlegov")
+                } else if (usersInfo.email === email && usersInfo.password === passwordlog) {
+                        console.log("vlegov");
+                        // console.log(usersInfo.email);
                         //session
                         // res.cookies.set( eMail,  eMail  )
                         // res.cookie(eMail , eMail)
-                        req.session.eMail = eMail;
-                        req.session.passwordlog = passwordlog;
+                        // res.session.email = email;
+                        // res.session.passwordlog = passwordlog;
                         // req.session.al = true;
                         // console.log("Cookies :  ", req.cookies);
                         // Cookies that have not been signed
@@ -62,7 +62,7 @@ router.post('/log', function (req, res) {
                     } else {
                         res.send(false);
                     }
-                } 
+                
             });
 
         });

@@ -21,10 +21,10 @@ router.post('/home', function(req, res) {
         model.findUser(email, function(userinfo){
             // res.writeHead(200,{'Contgent-type':'application/json'});
             console.log(userinfo);
-            var blagoj = [];
-            blagoj.push(userinfo);
-            console.log(blagoj);
-            res.send(blagoj);
+            // var blagoj = [];
+            // blagoj.push(userinfo);
+            // console.log(blagoj);
+            res.send(userinfo);
 
         });
     } else { 
