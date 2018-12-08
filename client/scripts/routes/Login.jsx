@@ -22,7 +22,8 @@ export default class Login extends React.Component {
           email:'',
           password:'',
           phone:'',
-          // islogin:false,
+          islogin:false,
+          isadmin:false,
         }
       }
       //   handleChange = event => {
@@ -37,16 +38,13 @@ export default class Login extends React.Component {
       //   }
         handleChange(e) {
           this.setState({ [e.target.name] : e.target.value });
-          console.log(e.target.name);
-          console.log(e.target.value);
-          console.log("ova se zivki");
-          console.log(this.state.username);
-          console.log(this.state.firstName);
+          // console.log(e.target.name);
+          // console.log(e.target.value);
+          // console.log("ova se zivki");
+          // console.log(this.state.username);
+          // console.log(this.state.firstName);
        }
-      //  handleS(dd) {
-      //   this.setState(this.state.islogin = dd);
-      //   console.log(this.state.islogin);
-      //  }
+       
         handleSubmit = event => {
           event.preventDefault();
       
@@ -57,23 +55,65 @@ export default class Login extends React.Component {
           });
             
           console.log(user)
+          var self =this;
           axios.post(`http://localhost:3001/log`, user,{headers:{'Content-Type':'application/json'}})
             .then(res => {
+              console.log("res");
               console.log(res);
-              console.log(res.data);
-              let ace = res.data;
-              console.log(ace);
-              // this.setState(this.state.islogin = true);
-              // console.log(this.state.islogin);
+              // console.log(res.data);
+              let userlogin = res.data[0].user;
+              let adminlogin = res.data[1].admin;
+              console.log(userlogin);
+              console.log(adminlogin);
+              console.log("dali e true ili false")
+              self.setState({islogin : userlogin});
+              self.setState({isadmin : adminlogin});
+              console.log(this.state.islogin);
+              console.log(this.state.isadmin);              
+              if(this.state.islogin == true && this.state.isadmin == false){
+                sessionStorage.setItem('eMail', this.state.email);
+                sessionStorage.setItem('islogin', this.state.islogin);
+                sessionStorage.setItem('isadmin', this.state.isadmin);
+                window.location.href = "/user";
+              } else if(this.state.islogin == false && this.state.isadmin == true){
+                sessionStorage.setItem('eMail', this.state.email);
+                sessionStorage.setItem('islogin', this.state.islogin);
+                sessionStorage.setItem('isadmin', this.state.isadmin);
+                window.location.href = "/admin";
+              } else {
+                sessionStorage.removeItem('eMail');
+                sessionStorage.removeItem('islogin');
+                sessionStorage.removeItem('isadmin');
+                window.location.href = "/login";
+              }
+              // console.log("islogin vo state");
             })
-            // .then(this.handleS(this.ace)
+            // .then(
+              // this.setState(this.state.islogin = this.ace),
+              // console.log(this.state.islogin),
+              // console.log("islogin vo state222")
+
             // )
         };
-        componentWillUpdate(){
-          sessionStorage.setItem('eMail', this.state.email);
-        }
+        // handleS(dd) {
+        //   this.setState(this.state.islogin = dd);
+        //   console.log(this.state.islogin);
+        //   console.log("islogin vo state222");
+  
+        //  }
+        // componentWillUpdate(){
+          // sessionStorage.setItem('eMail', this.state.email);
+          // sessionStorage.setItem('islogin', this.state.islogin);
+        // }
       render() {
-        let islogin = this.res;
+        let islogin = this.state.islogin;
+        console.log(islogin);
+        console.log("islogin");
+        // if (islogin){
+        //   var ds = <a href="/user">Log in</a>
+        // } else {
+        //   ds = <a href="/login">Log in</a>
+        // }
         return (
         //   <form>
         //     <FormGroup
@@ -100,7 +140,7 @@ export default class Login extends React.Component {
 
                 <Input type="email" label="Email" s={12} name="email" onChange={this.handleChange.bind(this)}><Icon>email</Icon></Input>
                 <Input type="password" label="password" s={12} name="password" onChange={this.handleChange.bind(this)}><Icon>lock</Icon></Input>
-                <Button waves='light'  href='/user' type="submit" > {islogin}<a href="/user">Log in</a></Button>
+                <Button waves='light'  type="submit"> Log in</Button>
             </form>
             </Row>
         </div>

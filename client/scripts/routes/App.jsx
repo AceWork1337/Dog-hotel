@@ -1,7 +1,10 @@
 //import npm package
-import React from 'react';
+// import React from 'react';
 import { connect } from 'react-redux';
-import {BrowserRouter,Route , Switch} from 'react-router-dom';
+import {Redirect,BrowserRouter,Route , Switch} from 'react-router-dom';
+import React, { Component } from "react";
+// import {Redirect , Route} from "react-router-dom";
+
 //favicon
 // import Favicon from 'react-favicon';
 
@@ -19,12 +22,13 @@ import Register from '../routes/Register.jsx';
 import Header from '../components/Header.jsx';
 import Faq from '../containers/Faq.jsx';
 import Training from '../containers/Training.jsx';
-
+// import PrivateRoute from './PrivateRoute.jsx';
 import '../../styles/routes/App.scss';
 
 // import { render } from 'react-dom';
 import {getNews } from '../actions';
 import {bindActionCreators} from 'redux';
+// export const 
  class App extends React.Component {
 
 constructor(props) {
@@ -89,12 +93,53 @@ constructor(props) {
 //   }
   
 // };
+PrivateRoute({ component: Component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        sessionStorage.getItem("islogin") ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
+  );
+}
+AdminRoute({ component: Component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        sessionStorage.getItem("isadmin") ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
+  );
+}
 
     render() {
       // console.log(this.props.movieslist.movies)
       console.log("ovde pochnuva");
       console.log(this.props.data);
       console.log("ovde zavrshuva");
+      var PrivateRoute = this.PrivateRoute
+      var AdminRoute = this.AdminRoute
+
       return (
           <BrowserRouter>
               <div>
@@ -103,9 +148,9 @@ constructor(props) {
                 <Switch>
                   <Route  path="/train" component={Training}/>
                   <Route  path="/faq" component={Faq}/>
-                  <Route  path="/user" component={UserProfile}/>
+                  <PrivateRoute  path="/user" component={UserProfile}/>
                   <Route  path="/reg" component={Register}/>
-                  <Route  path="/admin" exact component={AdminPanel}/>
+                  <AdminRoute  path="/admin" exact component={AdminPanel}/>
                   <Route  path="/contact" component={Contact}/>
                   <Route  path="/res" exact component={Reservation}/>
                   <Route  path="/About" exact component={About}/>

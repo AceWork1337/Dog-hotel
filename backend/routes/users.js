@@ -12,16 +12,16 @@ router.post('/register', function (req, res) {
     var phone = parseInt(req.body.phone);
     console.log(username);
     model.connectToDb(function (dbo) {
-        var myobj = {firstName:firstName, lastName:lastName, username: username, email: email, password: password, phone:phone };
+        var myobj = {firstName:firstName, lastName:lastName, username: username, email: email, password: password, phone:phone ,admin:false};
         model.findUser(email, function (usersInfo) {
             console.log(usersInfo);
             if (usersInfo === null) {
                 dbo.collection("users").insertOne(myobj, function (err, usersInfo) {
                     console.log("User created");
-                    res.send('User created');
+                    res.send(true);
                 });
             } else {
-                res.send('User already created');
+                res.send(false);
                 console.log("User already created");
             }
         });
@@ -41,6 +41,7 @@ router.post('/log', function (req, res) {
                     // res.redirect('../log');
                     res.send('Userot nepostoi');
                 } else if (usersInfo.email === email && usersInfo.password === passwordlog) {
+                    if(usersInfo.admin){
                         console.log("vlegov");
                         // console.log(usersInfo.email);
                         //session
@@ -57,10 +58,12 @@ router.post('/log', function (req, res) {
 
   // Cookies that have been signed
 //   console.log('Signed Cookies: ', req.signedCookies)
-                        res.send(true);
-                        
+                        res.send([{user:false},{admin:true},"admin"]);
                     } else {
-                        res.send(false);
+                        res.send([{user:true},{admin:false},"user"]);
+                    }
+                    } else {
+                        res.send([{user:false},{admin:false},"user not exist"]);
                     }
                 
             });

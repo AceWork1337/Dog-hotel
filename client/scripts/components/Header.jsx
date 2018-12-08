@@ -1,6 +1,6 @@
 //import npm package
 import React from 'react';
-
+// import $ from 'jquery';
 //import components and container-fluids
 import {Nav, NavItem, Navbar} from 'react-bootstrap';
 //import assets
@@ -8,7 +8,7 @@ import {Nav, NavItem, Navbar} from 'react-bootstrap';
 
 export default class NotFound extends React.Component {
 
-    // componentWillMount(){
+    componentDidMount(){
     //     $(document).ready(function(){       
     //       // const logoD = this.logoDark;
     //       var scroll_start = 0;
@@ -81,8 +81,14 @@ export default class NotFound extends React.Component {
     //       });
     //        }
     //    });
-       
-    //   }
+        if(sessionStorage.getItem("islogin") == true){
+            // $('#loginNavv').text('Sing Out');
+            console.log("vlegovvvv");
+            document.getElementById("loginNavv").textContent="newtext";
+        }
+        console.log(sessionStorage.getItem("islogin"));
+        console.log("dadadadadada")
+      }
 
     render(){
         return(
@@ -117,7 +123,7 @@ export default class NotFound extends React.Component {
                         <NavItem eventKey={2} href="/res">
                             Reservation
                         </NavItem>
-                        <NavItem eventKey={2} href="/login">
+                        <NavItem eventKey={2} id="loginNavv" href="/login">
                             Sign in
                         </NavItem>
                         <NavItem eventKey={2} href="reg">

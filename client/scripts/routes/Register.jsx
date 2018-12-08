@@ -14,7 +14,8 @@ export default class Register extends React.Component {
         lastName:'',
         email:'',
         password:'',
-        phone:''
+        phone:'',
+        isCreate:false,
       }
     
     //   handleChange = event => {
@@ -53,6 +54,13 @@ export default class Register extends React.Component {
           .then(res => {
             console.log(res);
             console.log(res.data);
+            if(res.data == true){
+              window.location.href = "/login";
+
+            }else {
+              window.location.href = "/reg";
+
+            }
           })
       }
     render(){
@@ -66,7 +74,7 @@ export default class Register extends React.Component {
                     <Input type="password" label="password" name="password" s={6} onChange={this.handleChange.bind(this)} ><Icon>lock</Icon></Input>
                     <Input type="email" label="Email" name="email" s={6} onChange={this.handleChange.bind(this)}><Icon>email</Icon></Input>
                     <Input s={6} label="Telephone" name="phone" validate type='number'onChange={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
-                    <Button waves='light'  type="submit"  > <a href='/login'>Register</a></Button>
+                    <Button waves='light'  type="submit"  > Register</Button>
                 </form>
                 </Row>
             </div>

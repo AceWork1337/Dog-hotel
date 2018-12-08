@@ -50,10 +50,10 @@ import { put, takeLatest, all,call,select } from 'redux-saga/effects';
 
 //   // ... call some API endpoint then dispatch a success/error action
 // }
-export const getProject = (state) => state.email
+// export const getProject = (state) => state.email
 
-function* fetchNews() {
-  let user =yield select(getProject);
+// function* fetchNews() {
+  // let user =yield select(getProject);
 //   let user =JSON.stringify( 
 //     {
 // //     // username: this.state.username,
@@ -69,8 +69,8 @@ function* fetchNews() {
   // console.log(user);
   // const user =  yield select(getCart)
   // console.log(...state);
-  const json = yield axios.post(`http://localhost:3001/home`, user,
-              {headers:{'Content-Type':'application/json'}})
+  // const json = yield axios.post(`http://localhost:3001/home`, user,
+  //             {headers:{'Content-Type':'application/json'}})
 
   // const json = yield fetch('http://localhost:3001/home', {
   //   method: 'POST',
@@ -80,31 +80,35 @@ function* fetchNews() {
   //   body: {'email':'acea@ace.com',"login":"true"}
   // })
   // console.log(response)
-    .then(response => response.data[0]);
+    // .then(response => response.data[0]);
 
-  yield put({ type: "NEWS_RECEIVED", json: json, });
+  // yield put({ type: "NEWS_RECEIVED", json: json, });
   // yield put({ type: "NEWS_RECEIVED", json: json.articles, });
 
-}
+// }
 
-// function* fetchNews() {
+function* fetchNews() {
 //   // try {
 //     console.log('fetching detail info')
-//     const response = yield fetch('http://localhost:3001/home', {
+    const response = yield fetch('http://localhost:3001/allusers', {
+
 //     method: 'POST',
 //     headers: {
 //       'Content-Type':'application/json'
 //     },
 //     body: {'email':'acea@ace.com',"login":"true"}
-//   })
+  })
+  // .then(response => response.data[0]);
+  .then(response => response.json());
+
 
 //     console.log(response);
 
-//     yield put({type: 'NEWS_RECEIVED', json: response})
+    yield put({type: 'NEWS_RECEIVED', json: response})
 //   // } catch (e) {
 //   //   console.log('error')
-//   // }
-// }
+  // }
+}
 function* actionWatcher() {
   yield takeLatest('GET_NEWS', fetchNews)
 }
