@@ -95,6 +95,19 @@ export default class Login extends React.Component {
 
             // )
         };
+        componentWillMount(){
+          if (sessionStorage.getItem('islogin')=="true" ){
+            window.location.href = "/user"
+          } else if (sessionStorage.getItem('isadmin')== "true") {
+            window.location.href = "/admin"            
+          }
+          console.log("dali e logiran veke");
+          console.log(sessionStorage.getItem('islogin'));
+          console.log(sessionStorage.getItem('isadmin'));
+          // sessionStorage.removeItem('islogin');
+                // ;
+
+        }
         // handleS(dd) {
         //   this.setState(this.state.islogin = dd);
         //   console.log(this.state.islogin);

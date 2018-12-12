@@ -27,6 +27,30 @@ router.post('/register', function (req, res) {
         });
     });
 });
+router.post('/modify', function (req, res) {
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;
+    var username = req.body.username;
+    var email = req.body.email;
+    var password = req.body.password;
+    var phone = parseInt(req.body.phone);
+    console.log(username);
+    model.connectToDb(function (dbo) {
+        var newmyobj = {firstName:firstName, lastName:lastName, username: username, email: email, password: password, phone:phone ,admin:false};
+        
+        model.findUser(email, function (usersInfo) {
+            var myobj = {name: usersInfo.name, email: usersInfo.email, password: usersInfo.password, firstName: usersInfo.firstName, lastName: usersInfo.lastName, phone: usersInfo.phone};
+
+            console.log(usersInfo);
+            if (usersInfo !== null) {
+                dbo.collection("users").update(myobj,newmyobj, function (err, usersInfo) {
+                    console.log("User updated");
+                    res.send(usersInfo);
+                });
+            }
+        });
+    });
+});
 
 router.post('/log', function (req, res) {
     var email = req.body.email;

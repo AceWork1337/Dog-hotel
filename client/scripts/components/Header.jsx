@@ -81,13 +81,18 @@ export default class NotFound extends React.Component {
     //       });
     //        }
     //    });
-        if(sessionStorage.getItem("islogin") == true){
+        if(sessionStorage.getItem("islogin") == "true" || sessionStorage.getItem("isadmin") == "true"){
             // $('#loginNavv').text('Sing Out');
-            console.log("vlegovvvv");
-            document.getElementById("loginNavv").textContent="newtext";
+            // console.log("vlegovvvv");
+            document.getElementById("loginNavv").textContent="Profile";
+            if (sessionStorage.getItem("islogin") == "true") {
+                document.getElementById("loginNavv").href="/user";
+            } else if (sessionStorage.getItem("isadmin") == "true") {
+                document.getElementById("loginNavv").href="/admin";
+            }
         }
-        console.log(sessionStorage.getItem("islogin"));
-        console.log("dadadadadada")
+        // console.log(sessionStorage.getItem("islogin"));
+        // console.log("dadadadadada")
       }
 
     render(){

@@ -42,7 +42,7 @@ export default class Register extends React.Component {
         let user =JSON.stringify( {
           username: this.state.username,
           firstName: this.state.firstName,
-          lastName: this.state.lastname,
+          lastName: this.state.lastName,
           email: this.state.email,
           password: this.state.password,
           phone: this.state.phone,
