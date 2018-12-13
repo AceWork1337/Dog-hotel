@@ -40,16 +40,49 @@ router.post('/modify', function (req, res) {
         
         model.findUser(email, function (usersInfo) {
             var myobj = {name: usersInfo.name, email: usersInfo.email, password: usersInfo.password, firstName: usersInfo.firstName, lastName: usersInfo.lastName, phone: usersInfo.phone};
-
+            for (var i in newmyobj){
+                console.log(newmyobj[i]);
+                if (newmyobj[i] === ""){
+                    console.log("praznoe");
+                }
+            }
+            console.log(newmyobj.firstName);
+            console.log("blablabla");
             console.log(usersInfo);
-            if (usersInfo !== null) {
+            if (usersInfo !== null && newmyobj !==null && newmyobj.values !== []) {
                 dbo.collection("users").update(myobj,newmyobj, function (err, usersInfo) {
                     console.log("User updated");
                     res.send(usersInfo);
                 });
+            } else {
+                res.send("user doesnt exist")
             }
         });
     });
+    var petID = req.body.petID;
+    var petNickname = req.body.petNickname;
+    var breeds = req.body.breeds;
+    var group1 = req.body.group1;
+    // var female = req.body.
+    var bday = req.body.bday;
+    var chipID = req.body.chipID;
+    model.connectToDb(function (dbo){
+        var newpetInfo = {petID:petID, petNickname:petNickname, breeds:breeds, Sex:group1, bday:bday, chipID:chipID};
+        console.log(newpetInfo);
+        model.findPet(chipID, function (petInfo) {
+            // console.log("petid");
+            // console.log(petinfo);
+
+            // var mypet= {petID:petInfo.petID, petNickName:petInfo.petNickname, Breeds:petInfo.breeds, Sex:petInfo.group1, bday:petInfo.bday, chipID:petInfo.chipID}
+            if(petInfo === null){
+                dbo.collection("pets").insertOne(newpetInfo, function (err,newpetInfo){
+                    console.log(newpetInfo);
+                    res.send(newpetInfo);
+                })
+            }
+        });
+    });
+
 });
 
 router.post('/log', function (req, res) {

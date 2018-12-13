@@ -22,6 +22,17 @@ var model = {
             })
         })
     },
+    findPet: function (chipID, callback) {
+        model.connectToDb(function (dbo) {
+
+            dbo.collection("pets").findOne({chipID: chipID}, function (err, petInfo) {
+                if (err) {
+                    console.log(err);
+                }
+                callback(petInfo)
+            })
+        })
+    },
     findAllUsers: function (callback) {
         model.connectToDb(function (dbo) {
 
