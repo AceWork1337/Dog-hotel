@@ -44,4 +44,11 @@ export const getNews = () => ({
     
 
   });
+  export const getUserinfo = () => ({
+    type: 'GET_USERINFO',
+    // headers:{'Content-Type':'application/json'},
+    
+    
+
+  });
   // getNews(this.body)

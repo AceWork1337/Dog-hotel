@@ -72,16 +72,22 @@ export default class Login extends React.Component {
               console.log(this.state.isadmin);              
               if(this.state.islogin == true && this.state.isadmin == false){
                 sessionStorage.setItem('eMail', this.state.email);
+                sessionStorage.setItem('firstName', this.state.firstName);
+                sessionStorage.setItem('lastName', this.state.lastName);
                 sessionStorage.setItem('islogin', this.state.islogin);
                 sessionStorage.setItem('isadmin', this.state.isadmin);
                 window.location.href = "/user";
               } else if(this.state.islogin == false && this.state.isadmin == true){
                 sessionStorage.setItem('eMail', this.state.email);
+                sessionStorage.setItem('firstName', this.state.firstName);
+                sessionStorage.setItem('lastName', this.state.lastName);
                 sessionStorage.setItem('islogin', this.state.islogin);
                 sessionStorage.setItem('isadmin', this.state.isadmin);
                 window.location.href = "/admin";
               } else {
                 sessionStorage.removeItem('eMail');
+                sessionStorage.removeItem('firstName');
+                sessionStorage.removeItem('lastName');
                 sessionStorage.removeItem('islogin');
                 sessionStorage.removeItem('isadmin');
                 window.location.href = "/login";

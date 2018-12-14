@@ -21,7 +21,7 @@ export default class UserDash extends React.Component {
             phone:'',
             petID:'',
             petNickname:'',
-            breeds:'',
+            Breeds:'',
             group1:'',
             female:'',
             on:'',
@@ -52,9 +52,9 @@ export default class UserDash extends React.Component {
           phone: this.state.phone,
           petID: this.state.petID,
           petNickname: this.state.petNickname,
-          breeds: this.state.breeds,
+          Breeds: this.state.Breeds,
           group1: this.state.group1,
-          bday: this.state.on,
+          on: this.state.on,
           chipID: this.state.chipID
           
 
@@ -101,19 +101,12 @@ export default class UserDash extends React.Component {
                         <Input type="file" label="File" s={12} multiple placeholder="Upload images from your pet" />
                     </Row> */}
                     <Row>
-                        <Autocomplete
+                        <Input
                             icon='pets'
                             s={4}
                             placeholder='Breeds'
-                            data={
-                            {
-                                'Beagle': null,
-                                'Samojed': null,
-                                'PitBull': null,
-
-                            }
-                            }
-                            name="breeds" onChange={this.handleChange.bind(this)}
+                            
+                            name="Breeds" onChange={this.handleChange.bind(this)}
                         />
                     {/* </Row>
                     <Row> */}

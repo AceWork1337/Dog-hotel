@@ -46,7 +46,11 @@ const reducer = (state = {}, action) => {
     case 'GET_NEWS':
       return { ...state, loading: true };
     case 'NEWS_RECEIVED':
-      return { ...state, news: action.json, loading: false }
+      return { ...state, news: action.json, loading: false };
+    case 'GET_USERINFO':
+      return { ...state, loading: true };
+    case 'USERINFO_RECEIVED':
+      return { ...state, userinfo: action.json, loading: false }
     default:
       return state;
   }

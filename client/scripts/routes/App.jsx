@@ -35,6 +35,7 @@ constructor(props) {
   super(props);
   this.state = {
     news:'',
+    userinfo:'',
     email:'acea@ace.com',
     login:'true',
   };
@@ -43,6 +44,8 @@ constructor(props) {
     // this.props.getMovies(),
     // this.props.getCars()
     this.props.getNews();
+    // this.props.getUserinfo();
+
     // this.props.carslist();
     // fetch('http://127.0.0.1:8181/')
     // .then(response => response.json())
@@ -170,13 +173,16 @@ AdminRoute({ component: Component, ...rest }) {
   const mapStateToProps = (state) => {
     return {
       data: state.news,  
-      body: {email:state.email,login:state.login}
+      // data: state.userinfo,
+      // body: {email:state.email,login:state.login}
     }
   }
   const  mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
       getNews 
-    },dispatch) 
+    }
+    // ,{getUserinfo}
+    ,dispatch) 
     
   } 
  

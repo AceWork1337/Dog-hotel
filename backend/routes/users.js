@@ -61,13 +61,13 @@ router.post('/modify', function (req, res) {
     });
     var petID = req.body.petID;
     var petNickname = req.body.petNickname;
-    var breeds = req.body.breeds;
+    var Breeds = req.body.Breeds;
     var group1 = req.body.group1;
     // var female = req.body.
-    var bday = req.body.bday;
+    var on = req.body.on;
     var chipID = req.body.chipID;
     model.connectToDb(function (dbo){
-        var newpetInfo = {petID:petID, petNickname:petNickname, breeds:breeds, Sex:group1, bday:bday, chipID:chipID};
+        var newpetInfo = {email:email, petID:petID, petNickname:petNickname, Breeds:Breeds, group1:group1, on:on, chipID:chipID};
         console.log(newpetInfo);
         model.findPet(chipID, function (petInfo) {
             // console.log("petid");
@@ -77,7 +77,7 @@ router.post('/modify', function (req, res) {
             if(petInfo === null){
                 dbo.collection("pets").insertOne(newpetInfo, function (err,newpetInfo){
                     console.log(newpetInfo);
-                    res.send(newpetInfo);
+                    // res.send(newpetInfo);
                 })
             }
         });
@@ -115,9 +115,9 @@ router.post('/log', function (req, res) {
 
   // Cookies that have been signed
 //   console.log('Signed Cookies: ', req.signedCookies)
-                        res.send([{user:false},{admin:true},"admin"]);
+                        res.send([{user:false},{admin:true},{firstName:userinfo.firstName},"admin"]);
                     } else {
-                        res.send([{user:true},{admin:false},"user"]);
+                        res.send([{user:true},{admin:false},{firstName:userinfo.firstName},"user"]);
                     }
                     } else {
                         res.send([{user:false},{admin:false},"user not exist"]);
@@ -130,14 +130,14 @@ router.post('/log', function (req, res) {
 });
 
 router.post('/reservation', function (req, res) {
-    var email = req.session.eMail;
+    var email = req.body.email;
     model.connectToDb(function (dbo) {
         model.findUser(email, function (usersInfo) {
             var reservationEmail = usersInfo.email;
             var reservationFirstName = usersInfo.firstName;
             var reservationUserPhone = usersInfo.phone;
 
-            var reservationBreeds = req.body.breeds;
+            var reservationBreeds = req.body.Breeds;
             var reservationQuantity = parseInt(req.body.quantity);
             var reservationSex = req.body.sex;
             var reservationPickDateTo = req.body.PickDateTo;
@@ -145,12 +145,16 @@ router.post('/reservation', function (req, res) {
             var reservationPhone = parseInt(req.body.Phone);
             var reservationRequirements = req.body.Requirements;
             var reservationBirthdayDog = req.body.BirthdayDog;
+            var reservationchipID = req.body.chipID;
+            var reservationpetID = req.body.petID;
+            var reservationpetNickname = req.body.petNickname;
 
             var myobj = {
                 firstName:reservationFirstName, email: reservationEmail, user_phone: reservationUserPhone,
                 breeds: reservationBreeds, quantity: reservationQuantity, sex: reservationSex, 
                 PickDateTo: reservationPickDateTo, PickDateFrom: reservationPickDateFrom, 
-                Phone: reservationPhone, Requirements: reservationRequirements, BirthdayDog: reservationBirthdayDog
+                Phone: reservationPhone, Requirements: reservationRequirements, BirthdayDog: reservationBirthdayDog,
+                chipID:reservationchipID, petID:reservationpetID, petNickname:reservationpetNickname
             };
             if (reservationBreeds == null || reservationQuantity == null || reservationSex == null || reservationPickDateTo == null ||  
                 reservationPickDateFrom == null || reservationPhone == null || reservationRequirements == null || reservationBirthdayDog == null ) {
