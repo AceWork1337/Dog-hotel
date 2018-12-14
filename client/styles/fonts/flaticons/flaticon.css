@@ -1,0 +1,135 @@
+@font-face {
+	font-family: "Flaticon";
+	src: url("flaticon.eot");
+	src: url("flaticon.eot#iefix") format("embedded-opentype"),
+	url("flaticon.woff") format("woff"),
+	url("flaticon.ttf") format("truetype"),
+	url("flaticon.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+font-style: normal;
+
+}.flaticon-animal380:before {
+	content: "\e000";
+}
+.flaticon-animal51:before {
+	content: "\e001";
+}
+.flaticon-animal86:before {
+	content: "\e002";
+}
+.flaticon-animals-allowed:before {
+	content: "\e003";
+}
+.flaticon-cat19:before {
+	content: "\e004";
+}
+.flaticon-cat44:before {
+	content: "\e005";
+}
+.flaticon-dog106:before {
+	content: "\e006";
+}
+.flaticon-dog25:before {
+	content: "\e007";
+}
+.flaticon-dog31:before {
+	content: "\e008";
+}
+.flaticon-dog38:before {
+	content: "\e009";
+}
+.flaticon-dog39:before {
+	content: "\e00a";
+}
+.flaticon-dog44:before {
+	content: "\e00b";
+}
+.flaticon-dog47:before {
+	content: "\e00c";
+}
+.flaticon-dog50:before {
+	content: "\e00d";
+}
+.flaticon-dog52:before {
+	content: "\e00e";
+}
+.flaticon-dog65:before {
+	content: "\e00f";
+}
+.flaticon-dog70:before {
+	content: "\e010";
+}
+.flaticon-dogs20:before {
+	content: "\e011";
+}
+.flaticon-dogs38:before {
+	content: "\e012";
+}
+.flaticon-fish14:before {
+	content: "\e013";
+}
+.flaticon-halloween242:before {
+	content: "\e014";
+}
+.flaticon-happy22:before {
+	content: "\e015";
+}
+.flaticon-hare:before {
+	content: "\e016";
+}
+.flaticon-kitty:before {
+	content: "\e017";
+}
+.flaticon-man417:before {
+	content: "\e018";
+}
+.flaticon-meow:before {
+	content: "\e019";
+}
+.flaticon-pet17:before {
+	content: "\e01a";
+}
+.flaticon-pet19:before {
+	content: "\e01b";
+}
+.flaticon-pet22:before {
+	content: "\e01c";
+}
+.flaticon-pet32:before {
+	content: "\e01d";
+}
+.flaticon-pet50:before {
+	content: "\e01e";
+}
+.flaticon-pet55:before {
+	content: "\e01f";
+}
+.flaticon-pets10:before {
+	content: "\e020";
+}
+.flaticon-pets14:before {
+	content: "\e021";
+}
+.flaticon-pets19:before {
+	content: "\e022";
+}
+.flaticon-pets2:before {
+	content: "\e023";
+}
+.flaticon-pets3:before {
+	content: "\e024";
+}
+.flaticon-pets8:before {
+	content: "\e025";
+}
+.flaticon-track2:before {
+	content: "\e026";
+}
+.flaticon-veterinarian:before {
+	content: "\e027";
+}
