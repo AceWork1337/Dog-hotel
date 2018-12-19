@@ -1,0 +1,69 @@
+/*===========================
+  theme: Yellow Paws
+============================ */
+
+/* Orange */
+
+
+a ,
+.glyphicon,
+.navbar-brand span,
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li.active ,
+.navbar-custom .nav > .active > a ,
+.navbar-brand:hover,
+.navbar-brand:focus ,
+#gallery .nav > li > a:hover ,
+.light-btn .btn:before,
+.light-btn .btn:hover,
+.light-btn .btn:focus,
+.team span ,
+#offers span{color:#d35400;}
+
+
+
+.spinner > div ,
+.top-bar ,
+.navbar-toggle ,
+.nav-pills>li>a:hover ,
+#stats ,
+#testimonials ,
+#call-to-action,
+#offers,
+footer ,
+.btn:before ,
+.social-media a:hover ,
+.pricing-tables .pricing-table.highlight-plan .plan-name {background-color: #d35400;}
+
+
+/* Yellow */
+
+
+a:hover,
+a:focus ,
+hr ,
+.hr ,
+.navbar-custom .nav li a:focus,
+.slider-pagi__elem ,
+.box > .icon > .image,
+#gallery .nav > li > a:focus {color: #f29c12;}
+
+
+.hr:before ,
+ul.social-list li a:hover ,
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus ,
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus ,
+.nav-pills .nav > li > a:hover ,
+.btn-default ,
+.btn-default:hover ,
+.btn-default:focus ,
+.box > .icon:hover > .image,
+.gallery-thumb .overlay-mask,
+.owl-prev:hover, .owl-next:hover ,
+.back-to-top i:hover {background-color:#f29c12;}
+
+#contact .form-control:focus {box-shadow:#f29c12;}
+
+.nav-pills> li.active:after {border-top-color: #f29c12;}
+
