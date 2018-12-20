@@ -1,0 +1,49 @@
+#contact {
+    overflow-x:hidden;
+    background: #D35400;
+    color: #fff;
+    &:before {
+            content: '';
+            background-image: url("../assets/img/cartoonbones1.png");
+            height: 570px;
+            width: 100%;
+            z-index: 5;
+            position: absolute;
+        }
+    h2 {
+        text-align: center;
+    }
+    .hotelInfo {
+        a {
+            color: rgb(53, 128, 120);
+        }
+        .openHours {
+            width: 60%;
+        }
+    }
+    .contactForm{
+        // display: block;
+        button {
+            margin-top: 50%;
+            margin-left: -15%;
+        }
+        
+    }
+    .map {
+        img {
+            margin-left: -30px;
+        }
+    }
+    .socialI {
+        display: inline-flex;
+            li {
+                img {
+                    width:40px;
+                    padding-right: 10px;
+                }
+            }
+    }
+    #copyright {
+        color: black;
+    }
+}

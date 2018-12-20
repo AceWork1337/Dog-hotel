@@ -1,5 +1,5 @@
 //import npm package
-import React from 'react';
+  import React from 'react';
 // import GoogleMapReact from 'google-map-react';
 import {GoogleMapReact,AnyReactComponent} from 'google-map-react';
 //import components and containers

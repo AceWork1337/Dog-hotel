@@ -8,7 +8,7 @@ import {Nav, NavItem, Navbar} from 'react-bootstrap';
 
 export default class NotFound extends React.Component {
 
-    // componentDidMount(){
+    componentDidMount(){
     //     $(document).ready(function(){       
     //       // const logoD = this.logoDark;
     //       var scroll_start = 0;
@@ -89,113 +89,64 @@ export default class NotFound extends React.Component {
 
 
     // ova treba za sing in
-    //     if(sessionStorage.getItem("islogin") == "true" || sessionStorage.getItem("isadmin") == "true"){
-    //         // $('#loginNavv').text('Sing Out');
-    //         // console.log("vlegovvvv");
-    //         document.getElementById("loginNavv").textContent="Profile";
-    //         if (sessionStorage.getItem("islogin") == "true") {
-    //             document.getElementById("loginNavv").href="/user";
-    //         } else if (sessionStorage.getItem("isadmin") == "true") {
-    //             document.getElementById("loginNavv").href="/admin";
-    //         }
-    //     }
-    //     // console.log(sessionStorage.getItem("islogin"));
-    //     // console.log("dadadadadada")
-    //   }
+        if(sessionStorage.getItem("islogin") == "true" || sessionStorage.getItem("isadmin") == "true"){
+            // $('#loginNavv').text('Sing Out');
+            // console.log("vlegovvvv");
+            document.getElementById("loginNavv").textContent="Profile";
+            if (sessionStorage.getItem("islogin") == "true") {
+                document.getElementById("loginNavv").href="/user";
+            } else if (sessionStorage.getItem("isadmin") == "true") {
+                document.getElementById("loginNavv").href="/admin";
+            }
+        }
+        // console.log(sessionStorage.getItem("islogin"));
+        // console.log("dadadadadada")
+      }
 
     render(){
         return(
-            // <div>
-            //     <Navbar inverse  fluid collapseOnSelect>
-            //         <Navbar.Header>
-            //             <Navbar.Brand>
-            //             <a href="#brand">React-Bootstrap</a>
-            //             </Navbar.Brand>
-            //             <Navbar.Toggle />
-            //         </Navbar.Header>
-            //         <Navbar.Collapse>
-            //             <Nav pullRight>
-            //             <NavItem eventKey={1} id="homeButton" href="/">
-            //                 HOME
-            //             </NavItem>
-            //             <NavItem eventKey={2} id="aboutButton">
-            //                 ABOUT
-            //             </NavItem>
-            //             <NavItem eventKey={2} id="roomButton">
-            //                 ROOMS & SUITES
-            //             </NavItem>
-            //             <NavItem eventKey={2} id="trainButton">
-            //                 TRAINING
-            //             </NavItem>
-            //             <NavItem eventKey={2} id="faqButton">
-            //                 FAQ
-            //             </NavItem>
-            //             <NavItem eventKey={2} id="contactButton">
-            //                 CONTACT US
-            //             </NavItem>
-            //             <NavItem eventKey={2} href="/res">
-            //                 Reservation
-            //             </NavItem>
-            //             <NavItem eventKey={2} id="loginNavv" href="/login">
-            //                 Sign in
-            //             </NavItem>
-            //             <NavItem eventKey={2} href="reg">
-            //                 Register
-            //             </NavItem>
-            //             </Nav>
-            //         </Navbar.Collapse>
-            //     </Navbar>
-            // </div>
-      <nav className="navbar navbar-custom navbar-fixed-top">
-			<div className="top-bar hidden-xs hidden-sm">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-8">
-							<ul className="contact-details">
-                                <li><i className="fa fa-map-marker"></i>Pet Street - Bergen,Norway</li>
-                                <li><i className="fa fa-envelope"></i>petshop@site.com</li>
-                                <li><i className="fa fa-phone"></i>+1 (123) 456 7890</li>
-                            </ul>
-						</div>
-						<div className="col-md-4">
-							<ul className="social-list">
-								<li><a title="Facebook" href="#"><i className="fa fa-facebook"></i></a></li>
-								<li><a title="Twitter" href="#"><i className="fa fa-twitter"></i></a></li>
-								<li><a title="Google Plus" href="#"><i className="fa fa-google-plus"></i></a></li>
-								<li><a  title="Linkedin" href="#"><i className="fa fa-linkedin"></i></a></li>
-								<li><a  title="Flickr" href="#"><i className="fa fa-flickr"></i></a></li>
-								<li><a  title="Tumblr" href="#"><i className="fa fa-tumblr"></i></a></li>
-								<li><a  title="Instagram" href="#"><i className="fa fa-instagram"></i></a></li>								
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-         <div className="container">
-            <div className="navbar-header page-scroll">
-               <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-               <i className="fa fa-bars"></i>
-               </button>
-               <div className="page-scroll">
-                  <a className="navbar-brand" href="#page-top">
-                     <span className="flaticon-animals-allowed"></span>Happy Paws
-                  </a>
-               </div>
+            <div>
+                <Navbar   fluid collapseOnSelect>
+                    <Navbar.Header>
+                        <Navbar.Brand>
+                        <a href="#brand">Cipo House</a>
+                        </Navbar.Brand>
+                        <Navbar.Toggle />
+                    </Navbar.Header>
+                    <Navbar.Collapse>
+                        <Nav pullRight>
+                        <NavItem eventKey={1} id="homeButton" href="/">
+                            HOME
+                        </NavItem>
+                        <NavItem eventKey={2} id="aboutButton">
+                            ABOUT
+                        </NavItem>
+                        <NavItem eventKey={2} id="roomButton">
+                            ROOMS & SUITES
+                        </NavItem>
+                        <NavItem eventKey={2} id="trainButton">
+                            TRAINING
+                        </NavItem>
+                        <NavItem eventKey={2} id="faqButton">
+                            FAQ
+                        </NavItem>
+                        <NavItem eventKey={2} id="contactButton">
+                            CONTACT US
+                        </NavItem>
+                        <NavItem eventKey={2} href="/res">
+                            Reservation
+                        </NavItem>
+                        <NavItem eventKey={2} id="loginNavv" href="/login">
+                            Sign in
+                        </NavItem>
+                        <NavItem eventKey={2} href="reg">
+                            Register
+                        </NavItem>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
             </div>
-            <div className="collapse navbar-collapse navbar-right navbar-main-collapse">
-               <ul className="nav navbar-nav page-scroll">
-                  <li className="active"><a href="#page-top">Home</a></li>
-                  <li><a href="#services">Services</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#prices">Prices</a></li>
-                  <li><a href="#gallery">Gallery</a></li>
-                  <li><a href="#offers">Offers</a></li>
-				  <li><a href="#adoption">Adoption</a></li>
-                  <li><a href="#contact">Contact</a></li>
-               </ul>
-            </div>
-         </div>
-      </nav>
+      
         );
     }
 }

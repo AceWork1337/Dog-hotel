@@ -11,11 +11,11 @@ export default class ContactForm extends React.Component {
         return(
             <div className="contactForm">
                 <Row>
-                    <Input xl={12} label="First Name" validate><Icon>account_circle</Icon></Input>
-                    <Input xl={12} label="e-mail" validate type='email'><Icon>account_circle</Icon></Input>
+                    <Input s={10} label="First Name" validate><Icon>account_circle</Icon></Input>
+                    <Input s={10} label="e-mail" validate type='email'><Icon>account_circle</Icon></Input>
                     
-                    <Input xl={12} label="Subject" validate ><Icon>phone</Icon></Input>
-                    <Input xl={12} label="Your message" type='textarea' />
+                    <Input s={10} label="Phone" validate ><Icon>phone</Icon></Input>
+                    <Input s={10} label="Your message" type='textarea' />
                     <Button waves='light'>Send</Button>
                 </Row>
             </div>
