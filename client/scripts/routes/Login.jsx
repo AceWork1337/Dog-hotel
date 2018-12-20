@@ -4,7 +4,7 @@ import {FormGroup,ControlLabel,FormControl,HelpBlock} from 'react-bootstrap';
 import {Row,Input,Icon,Button} from 'react-materialize';
 import axios from 'axios';
 //import components and containers
-
+import '../../styles/routes/Login.scss';
 //import assets
 
 
@@ -150,7 +150,7 @@ export default class Login extends React.Component {
         //       <HelpBlock>Validation is based on string length.</HelpBlock>
         //     </FormGroup>
         //   </form>
-        <div>
+        <div className="loginDiv">
             <Row>
             <form onSubmit={this.handleSubmit}>
             {/* <Input s={6} label="User Name" ><Icon>person</Icon></Input> */}

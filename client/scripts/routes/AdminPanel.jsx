@@ -13,6 +13,7 @@ import NotFound from '../routes/404.jsx';
 import beagle from '../../styles/assets/img/beagle.jpg';
 import samojed from '../../styles/assets/img/samojed.jpeg'
 
+
 export default class AdminPanel extends React.Component {
 
     render() {

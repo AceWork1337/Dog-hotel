@@ -3,7 +3,7 @@ import React from 'react';
 import {Row,Input,Icon,Button} from 'react-materialize';
 import axios from 'axios';
 //import components and containers
-
+import '../../styles/routes/Register.scss';
 //import assets
 
 
@@ -65,15 +65,15 @@ export default class Register extends React.Component {
       }
     render(){
         return(
-            <div>
+            <div className="registerDiv">
                 <Row>
                 <form onSubmit={this.handleSubmit}>
-                    <Input s={6} type="text" label="First Name" name="firstName" onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
-                    <Input s={6} type="text" label="Last Name" name="lastName" onChange={this.handleChange.bind(this)}/>
-                    <Input s={6} type="text" label="User Name" name="username" onChange={this.handleChange.bind(this)}><Icon>person</Icon></Input>
-                    <Input type="password" label="password" name="password" s={6} onChange={this.handleChange.bind(this)} ><Icon>lock</Icon></Input>
-                    <Input type="email" label="Email" name="email" s={6} onChange={this.handleChange.bind(this)}><Icon>email</Icon></Input>
-                    <Input s={6} label="Telephone" name="phone" validate type='number'onChange={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
+                    <Input s={12} type="text" label="First Name" name="firstName" onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
+                    <Input s={12} type="text" label="Last Name" name="lastName" onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
+                    <Input s={12} type="text" label="User Name" name="username" onChange={this.handleChange.bind(this)}><Icon>person</Icon></Input>
+                    <Input type="password" label="password" name="password" s={12} onChange={this.handleChange.bind(this)} ><Icon>lock</Icon></Input>
+                    <Input type="email" label="Email" name="email" s={12} onChange={this.handleChange.bind(this)}><Icon>email</Icon></Input>
+                    <Input s={12} label="Telephone" name="phone" validate type='number'onChange={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
                     <Button waves='light'  type="submit"  > Register</Button>
                 </form>
                 </Row>
