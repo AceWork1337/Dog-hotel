@@ -10,12 +10,19 @@
             z-index: 5;
             position: absolute;
         }
-    h2 {
+    h4 {
         text-align: center;
+        font-family: 'gly';
     }
     .hotelInfo {
         a {
             color: rgb(53, 128, 120);
+        }
+        h4 {
+            font-family: 'gly';
+        }
+        p {
+            font-family: 'gly';
         }
         .openHours {
             width: 60%;
@@ -36,6 +43,7 @@
     }
     .socialI {
         display: inline-flex;
+        padding-top: 1%;
             li {
                 img {
                     width:40px;
@@ -45,5 +53,7 @@
     }
     #copyright {
         color: black;
+        padding-top: 1%;
+        font-family: 'gly'; 
     }
 }

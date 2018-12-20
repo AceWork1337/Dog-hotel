@@ -1,6 +1,6 @@
 //import npm package
 import React from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid, Row, Col,Image} from 'react-bootstrap';
 import {Input,Icon,Button} from 'react-materialize';
 
 //import components and containers
@@ -21,7 +21,7 @@ export default class Contact extends React.Component {
             <div id="contact">
                 <Grid>
                     <Row className="show-grid">
-                        <h2>GET IN TOUCH</h2>                    
+                        <h4>GET IN TOUCH</h4>                    
                     </Row>
                     <Row className="show-grid">
                         <Col sm ={12} md={5}>
@@ -42,12 +42,13 @@ export default class Contact extends React.Component {
                     </Row>
                 </Grid>
                 <Grid fluid>
-                    <Row className="show-grid map">
-                        <Col md={12}>
+                    {/* <Row className="show-grid map"> */}
+                        {/* <Col md={12}> */}
                             {/* <img src={map}/> */}
-                            <iframe scr={"https://www.npmjs.com/package/google-map-react"}><a></a></iframe>
-                        </Col>                    
-                    </Row>
+                            {/* <iframe scr={"https://www.npmjs.com/package/google-map-react"}><a></a></iframe> */}
+                        {/* </Col>                     */}
+                    {/* </Row> */}
+                    <Image src={map} responsive />
                     {/* <Row className="show-grid">
                         <Col md={12}>
                             <ul className="socialI">
@@ -71,7 +72,7 @@ export default class Contact extends React.Component {
                                 <li><img src={twitter}/></li>
                             </ul>
                         </Col>
-                        <Col md={3}>
+                        <Col md={4}>
                         <p id="copyright"> COPYRIGHT © 2018 Aleksandar Stojanovikj</p>
                         </Col>                    
                     </Row>

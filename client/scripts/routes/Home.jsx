@@ -1,6 +1,6 @@
 //import npm package
 import React from 'react';
-import {Carousel,Grid,Row,Col} from 'react-bootstrap';
+import {Carousel,Grid,Row,Col,Image} from 'react-bootstrap';
 import { Slider, Slide } from 'react-materialize';
 //import components and containers
 // import Home from '../routes/Home.jsx';
@@ -51,6 +51,7 @@ export default class Home extends React.Component {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>  */}
+                <Grid fluid>
                  <Slider id="topMedia">
                     <Slide
                         src={SamoyedWall}
@@ -71,10 +72,9 @@ export default class Home extends React.Component {
                         placement="right">
                         Your pooch will enjoy the ultimate in our hotel.
                     </Slide>
-                </Slider>
-                
-                {/* <About/>
-                <Rooms/>
+                </Slider>                
+                <About/>
+                {/* <Rooms/>
                 <Training/>
                 <Faq/>
                 <Contact/> */}
@@ -89,21 +89,25 @@ export default class Home extends React.Component {
                   <div className="ourServicesDiv">
                   <Col sm={12} md={4}>
                      <div>
-                        <img src={pethealth}/>
+                        {/* <img src={pethealth}/> */}
+                        <Image src={pethealth} responsive />
                         <h5>Pet Health</h5>
                         <p>We offer the most amazing services for your Pet's health and High quality professionals ready to take care of your best friend. </p>
                      </div>
                      </Col>
                      <Col sm={12} md={4}>
                      <div>
-                        <img src={PetGrooming}/>
+                        {/* <img src={PetGrooming}/> */}
+                        <Image src={PetGrooming} responsive />
                         <h5>Pet Grooming</h5>
                         <p>Lets talk through some ideas, look at some pictures and help you choose the next great look for your pet in out shop with the best.</p>
                      </div>
                      </Col>
                      <Col sm={12} md={4}>
                      <div>
-                        <img src={pethotel}/>
+                        {/* <img src={pethotel}/> */}
+                        <Image src={pethotel} responsive />
+
                         <h5>Pet Hotel</h5>
                         <p>Now you can leave your pet here when you travel with safety and great care for all animals we host here are our hotel.</p>
                      </div>
@@ -114,6 +118,7 @@ export default class Home extends React.Component {
                </Row>
                </Grid>
                <Contact/>
+               </Grid>
             </div> 
            
         );

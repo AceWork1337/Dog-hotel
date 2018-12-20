@@ -83,14 +83,17 @@ router.post('/modify', function (req, res) {
         });
     });
 
-});
+}); 
 
 router.post('/log', function (req, res) {
     var email = req.body.email;
     var passwordlog = req.body.password;
     model.connectToDb(function (dbo) {
         var myobjlog = {email: email, password: passwordlog};
+        console.log(myobjlog);
         model.findUser(email, function (usersInfo) {
+            console.log(usersInfo);
+
             dbo.collection("users").findOne({email: email}, function (err, usersInfo) {
 
                 console.log(usersInfo);
@@ -109,18 +112,18 @@ router.post('/log', function (req, res) {
                         // req.session.al = true;
                         // console.log("Cookies :  ", req.cookies);
                         // Cookies that have not been signed
-//                         console.log(eMail);
-//                         res.cookies.eMail=eMail;
-//   console.log('Cookies: ', res.cookies)
+                        //  console.log(eMail);
+                        //  res.cookies.eMail=eMail;
+                        //   console.log('Cookies: ', res.cookies)
 
-  // Cookies that have been signed
-//   console.log('Signed Cookies: ', req.signedCookies)
-                        res.send([{user:false},{admin:true},{firstName:userinfo.firstName},"admin"]);
+                        // Cookies that have been signed
+                        //  console.log('Signed Cookies: ', req.signedCookies)
+                        res.send([{user:false},{admin:true},"admin"]);
                     } else {
-                        res.send([{user:true},{admin:false},{firstName:userinfo.firstName},"user"]);
+                        res.send([{user:true},{admin:false}, {firstName:usersInfo.firstName} ,"user"]);
                     }
                     } else {
-                        res.send([{user:false},{admin:false},"user not exist"]);
+                        res.send([{user:false},{admin:false}, console.log(userinfo), "user not exist"]);
                     }
                 
             });

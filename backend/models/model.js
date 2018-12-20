@@ -20,7 +20,7 @@ var model = {
                 }
                 callback(usersInfo)
             })
-        })
+        }) 
     },
     findPet: function (chipID, callback) {
         model.connectToDb(function (dbo) {

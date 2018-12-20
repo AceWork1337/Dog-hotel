@@ -2,9 +2,9 @@
 import React from 'react';
 // import $ from 'jquery';
 //import components and container-fluids
-import {Nav, NavItem, Navbar} from 'react-bootstrap';
+import {Nav, NavItem, Navbar,Image} from 'react-bootstrap';
 //import assets
-
+import logo from '../../styles/assets/img/logo-concept.png';
 
 export default class NotFound extends React.Component {
 
@@ -106,10 +106,10 @@ export default class NotFound extends React.Component {
     render(){
         return(
             <div>
-                <Navbar   fluid collapseOnSelect>
+                <Navbar    collapseOnSelect>
                     <Navbar.Header>
-                        <Navbar.Brand>
-                        <a href="#brand">Cipo House</a>
+                        <Navbar.Brand pullLeft>
+                        <Image src={logo} responsive />
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
@@ -121,26 +121,26 @@ export default class NotFound extends React.Component {
                         <NavItem eventKey={2} id="aboutButton">
                             ABOUT
                         </NavItem>
-                        <NavItem eventKey={2} id="roomButton">
+                        {/* <NavItem eventKey={2} id="roomButton">
                             ROOMS & SUITES
                         </NavItem>
                         <NavItem eventKey={2} id="trainButton">
                             TRAINING
-                        </NavItem>
+                        </NavItem> */}
                         <NavItem eventKey={2} id="faqButton">
-                            FAQ
+                            OUR SERVICES
                         </NavItem>
                         <NavItem eventKey={2} id="contactButton">
                             CONTACT US
                         </NavItem>
                         <NavItem eventKey={2} href="/res">
-                            Reservation
+                            RESERVATION
                         </NavItem>
                         <NavItem eventKey={2} id="loginNavv" href="/login">
-                            Sign in
+                            SING IN
                         </NavItem>
                         <NavItem eventKey={2} href="reg">
-                            Register
+                            REGISTER
                         </NavItem>
                         </Nav>
                     </Navbar.Collapse>
