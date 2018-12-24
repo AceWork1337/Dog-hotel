@@ -176,7 +176,51 @@ router.post('/reservation', function (req, res) {
         });
     });
 });
+router.post('/reservationNoLogin', function (req, res) {
+    var email = req.body.email;
+    model.connectToDb(function (dbo) {
+        // model.findUser(email, function (usersInfo) {
+            var reservationEmail = req.body.email;
+            var reservationFirstName = req.body.FirstName;
+            var reservationLastName = req.body.LastName;
+            // var reservationUserPhone = usersInfo.phone;
 
+            var reservationBreeds = req.body.Breeds;
+            var reservationQuantity = parseInt(req.body.quantity);
+            var reservationSex = req.body.sex;
+            var reservationPickDateTo = req.body.PickDateTo;
+            var reservationPickDateFrom = req.body.PickDateFrom;
+            var reservationPhone = parseInt(req.body.Phone);
+            var reservationRequirements = req.body.Requirements;
+            var reservationBirthdayDog = req.body.BirthdayDog;
+            var reservationchipID = req.body.chipID;
+            var reservationpetID = req.body.petID;
+            var reservationpetNickname = req.body.petNickname;
+
+            var myobj = {
+                FirstName:reservationFirstName, LastName:reservationLastName,email: reservationEmail,
+                breeds: reservationBreeds, quantity: reservationQuantity, sex: reservationSex, 
+                PickDateTo: reservationPickDateTo, PickDateFrom: reservationPickDateFrom, 
+                Phone: reservationPhone, Requirements: reservationRequirements, BirthdayDog: reservationBirthdayDog,
+                chipID:reservationchipID, petID:reservationpetID, petNickname:reservationpetNickname
+            };
+            if (reservationBreeds == null || reservationQuantity == null || reservationSex == null || reservationPickDateTo == null ||  
+                reservationPickDateFrom == null || reservationPhone == null || reservationRequirements == null || reservationBirthdayDog == null ) {
+                console.log("vnesetegi site polinja");
+                res.send('Vnesetegi site polinja');
+            } else {
+                dbo.collection("reservationswithoutlogin").insertOne(myobj, function (err, usersInfo) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                    console.log("reservation created");
+                    res.send('reservation created');
+                    }
+                });
+            }
+        // });
+    });
+});
 router.post('/editform', function (req, res) {
     var email = req.session.eMail;
     model.connectToDb(function (dbo) {

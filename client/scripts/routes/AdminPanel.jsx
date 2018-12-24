@@ -8,7 +8,8 @@ import Present from '../containers/Present.jsx';
 import Reservations from '../containers/Reservations.jsx';
 import Past from '../containers/Past.jsx';
 import NotFound from '../routes/404.jsx';
-
+import AdminDash from '../containers/AdminDash.jsx';
+import '../../styles/routes/UserProfile.scss';
 //import assets
 import beagle from '../../styles/assets/img/beagle.jpg';
 import samojed from '../../styles/assets/img/samojed.jpeg'
@@ -19,10 +20,11 @@ export default class AdminPanel extends React.Component {
     render() {
         return (
             <BrowserRouter>
-              <div>
+              <div id="userProfileDiv">
               <Row>
+              <Col s={12}>
+                        <Col s={2} id="BBlock">
                     <Col s={12}>
-                        <Col s={2}>
                            
                             <SideNav
                             trigger={<Button>Admin menu</Button>}
@@ -37,6 +39,7 @@ export default class AdminPanel extends React.Component {
                                 }}
                             />
                             {/* <SideNavItem  icon='cloud'><Link to='#!icon'/>First Link With Icon</SideNavItem> */}
+                            
                             <SideNavItem ><NavLink exact to='/admin/present'>Prisutni milenici</NavLink></SideNavItem>
                             <SideNavItem ><NavLink exact to='/admin/past'>Milenici koi go poseitse gotelot</NavLink></SideNavItem>
                             <SideNavItem ><NavLink exact to='/admin/reservation'>Rezervacii</NavLink></SideNavItem>
@@ -45,9 +48,14 @@ export default class AdminPanel extends React.Component {
                             <SideNavItem waves ><NavLink exact to='/admin/bill'>Presmetka</NavLink></SideNavItem>
                             </SideNav>
                         </Col>
+                        <Col s={12}>
+                                <Button waves='light' id="logout" onClick={this.logout}>Sing out</Button>
+                            </Col>
+                        </Col>
                         <Col s={10}>
                         
                             <Switch>
+                                <Route  path="/admin" exact component={AdminDash}/>
                                 <Route  path="/admin/present" exact component={Present}/>
                                 <Route  path="/admin/past" exact component={Past}/>
                                 <Route  path="/admin/reservation" exact component={Reservations}/>

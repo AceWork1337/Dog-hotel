@@ -1,7 +1,7 @@
 //import npm package
 import React from 'react';
 import {FormGroup,ControlLabel,FormControl,HelpBlock} from 'react-bootstrap';
-import {Row,Input,Icon,Button} from 'react-materialize';
+import {Row,Input,Icon,Button,Col} from 'react-materialize';
 import axios from 'axios';
 //import components and containers
 import '../../styles/routes/Login.scss';
@@ -150,8 +150,11 @@ export default class Login extends React.Component {
         //       <HelpBlock>Validation is based on string length.</HelpBlock>
         //     </FormGroup>
         //   </form>
+        <Row>
+          <Col s={1} m={3} l={4}></Col>
+              <Col s={10}  m ={6} l={4}>
         <div className="loginDiv">
-            <Row>
+            
             <form onSubmit={this.handleSubmit}>
             {/* <Input s={6} label="User Name" ><Icon>person</Icon></Input> */}
                 {/* <Input s={6} label="First Name" ><Icon>account_circle</Icon></Input> */}
@@ -161,8 +164,10 @@ export default class Login extends React.Component {
                 <Input type="password" label="password" s={12} name="password" onChange={this.handleChange.bind(this)}><Icon>lock</Icon></Input>
                 <Button waves='light'  type="submit"> Log in</Button>
             </form>
-            </Row>
+            
         </div>
+        </Col>
+            </Row>
         );
       }
     }

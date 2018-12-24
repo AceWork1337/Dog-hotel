@@ -20,6 +20,7 @@ import NotFound from '../routes/404.jsx';
 import Login from '../routes/Login.jsx';
 import Register from '../routes/Register.jsx';
 import Header from '../components/Header.jsx';
+import HeaderEmpty from '../components/HeaderEmpty.jsx';
 import Faq from '../containers/Faq.jsx';
 import Training from '../containers/Training.jsx';
 // import PrivateRoute from './PrivateRoute.jsx';
@@ -28,8 +29,12 @@ import '../../styles/routes/App.scss';
 // import { render } from 'react-dom';
 import {getNews } from '../actions';
 import {bindActionCreators} from 'redux';
-// export const 
- class App extends React.Component {
+if(window.location.pathname=="/") {
+  var Headerrender = Header;
+} else {
+  Headerrender = HeaderEmpty;
+}
+class App extends React.Component {
 
 constructor(props) {
   super(props);
@@ -39,13 +44,15 @@ constructor(props) {
     email:'acea@ace.com',
     login:'true',
   };
-} 
+}
+
   componentWillMount(){
     // this.props.getMovies(),
     // this.props.getCars()
     this.props.getNews();
     // this.props.getUserinfo();
-
+console.log(window.location.pathname);
+    
     // this.props.carslist();
     // fetch('http://127.0.0.1:8181/')
     // .then(response => response.json())
@@ -142,12 +149,12 @@ AdminRoute({ component: Component, ...rest }) {
       console.log("ovde zavrshuva");
       var PrivateRoute = this.PrivateRoute
       var AdminRoute = this.AdminRoute
-
+// let Headerrender = Headerrender;
       return (
           <BrowserRouter>
               <div>
                 {/* <Favicon url={require("../styles/assets/img/favicon/favicon.ico")}/> */}
-                <Header/> 
+                <Headerrender/> 
                 <Switch>
                   <Route  path="/train" component={Training}/>
                   <Route  path="/faq" component={Faq}/>

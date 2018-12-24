@@ -1,6 +1,30 @@
-.carousel-inner>.item>a>img, .carousel-inner>.item>img {
-    width: 100%;
+// .carousel-inner>.item>a>img, .carousel-inner>.item>img {
+//     width: 100%;
+// }
+// #homeButton {
+//     font-size: 0.8rem;
+// }
+// #logout {
+// display: none;
+// margin-top: 2%;
+// }
+#hedNav {
+    // position: fixed;
+    #ServicesButton{}
+    a{
+        // font-size: 10px;
+    }
 }
-#homeButton {
-    font-size: 0.8rem;
+#hedNav > nav > div > div.navbar-collapse.collapse > ul > li > a {
+    font-size: 1rem;
+}
+@media only screen and (max-width: 1240px) {
+    #hedNav > nav > div > div.navbar-collapse.collapse > ul > li > a {
+        font-size: 0.8rem;
+    }
+}
+@media only screen and (max-width: 1064px) {
+    #hedNav > nav > div > div.navbar-collapse.collapse > ul > li > a {
+        font-size: 12px;
+    }
 }

@@ -12,7 +12,7 @@ import UserDash from '../containers/UserDash.jsx';
 //import assets
 import beagle from '../../styles/assets/img/beagle.jpg';
 import samojed from '../../styles/assets/img/samojed.jpeg'
-
+import '../../styles/routes/UserProfile.scss';
 export default class UserProfile extends React.Component {
     constructor(props) {
         super(props);
@@ -28,6 +28,12 @@ export default class UserProfile extends React.Component {
     //   componentWillMount(){
     //   let userinfo = sessionStorage.getItem('eMail');
     //   }
+    logout () {
+        sessionStorage.removeItem('eMail');
+        sessionStorage.removeItem('islogin');
+        sessionStorage.removeItem('isadmin');
+        window.location.href = "/login";
+    }
     render() {
         console.log(this.props);
         console.log(this.state.email)
@@ -37,10 +43,11 @@ export default class UserProfile extends React.Component {
 
         return (
             <BrowserRouter>
-              <div>
+              <div id="userProfileDiv">
               <Row>
                     <Col s={12}>
-                        <Col s={2}>
+                        <Col s={2} id="BBlock">
+                    <Col s={12}>
                            
                             <SideNav
                             trigger={<Button>Profile menu</Button>}
@@ -62,6 +69,17 @@ export default class UserProfile extends React.Component {
                             {/* <SideNavItem subheader>Tekovni</SideNavItem> */}
                             {/* <SideNavItem waves ><NavLink exact to='/admin/bill'>Presmetka</NavLink></SideNavItem> */}
                             </SideNav>
+                            </Col>
+                            {/* <Col s={12}>
+
+                                    <Button waves='light' id="HomeB" ><a href="/">Home</a></Button>
+                            </Col> */}
+                            {/* <Col s={12}>
+                                                    <Button waves='light' id="profileB" href="/user">Profile</Button>
+                            </Col> */}
+                            <Col s={12}>
+                                <Button waves='light' id="logout" onClick={this.logout}>Sing out</Button>
+                            </Col>
                         </Col>
                         <Col s={10}>
                         

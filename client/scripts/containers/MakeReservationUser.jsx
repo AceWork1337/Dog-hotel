@@ -5,8 +5,8 @@ import axios from 'axios';
 //import components and containers
 
 //import assets
-
-
+import '../../styles/containers/MakeReservationUser.scss';
+// client\styles\containers\MakeReservationUser.scss
 export default class MakeReservationUser extends React.Component {
     // constructor(){
         // super();
@@ -85,7 +85,7 @@ export default class MakeReservationUser extends React.Component {
         let today = new Date().toISOString().split("T")[0];
         let _this = this;
         return(
-            <div>
+            <div className="userRes">
                 <Row>
                 <form onSubmit={this.handleSubmit}>
                     {/* <Input s={6} label="First Name" ><Icon>account_circle</Icon></Input> */}

@@ -6,7 +6,7 @@ import {Nav, NavItem, Navbar,Image,Button} from 'react-bootstrap';
 //import assets
 import logo from '../../styles/assets/img/logo-concept.png';
 import '../../styles/components/Header.scss';
-export default class Header extends React.Component {
+export default class HeaderEmpry extends React.Component {
 
     componentWillMount(){
        
@@ -15,33 +15,33 @@ export default class Header extends React.Component {
     componentDidMount(){
         // $(document).ready(function(){       
             // const logoD = this.logoDark;
-            if (window.location.pathname == "/") {
-            var scroll_start = 0;
-            var startchange = $('#about');
-              $("#homeButton").click(function() {
-                $('html, body').animate({
-                    scrollTop: $(".home-page").offset().top
-                }, 2000);
-            });
-              $("#aboutButton").click(function() {
-                $('html, body').animate({
-                    scrollTop: $("#about").offset().top
-                }, 2000);
-            });
-              $("#ServicesButton").click(function() {
-                $('html, body').animate({
-                    scrollTop: $(".ourServices").offset().top
-                }, 2000);
-            });
-              $("#contactButton").click(function() {
-                $('html, body').animate({
-                    scrollTop: $("#contact").offset().top
-                }, 2000);
-            });
-            // var newChange = $('.SliderCanvas');
-            var offset = startchange.offset();
-            offset.top-=100;
-            console.log(offset);
+            // if (window.location.pathname == "/") {
+            // var scroll_start = 0;
+            // var startchange = $('#about');
+            //   $("#homeButton").click(function() {
+            //     $('html, body').animate({
+            //         scrollTop: $(".home-page").offset().top
+            //     }, 2000);
+            // });
+            //   $("#aboutButton").click(function() {
+            //     $('html, body').animate({
+            //         scrollTop: $("#about").offset().top
+            //     }, 2000);
+            // });
+            //   $("#ServicesButton").click(function() {
+            //     $('html, body').animate({
+            //         scrollTop: $(".ourServices").offset().top
+            //     }, 2000);
+            // });
+            //   $("#contactButton").click(function() {
+            //     $('html, body').animate({
+            //         scrollTop: $("#contact").offset().top
+            //     }, 2000);
+            // });
+            // // var newChange = $('.SliderCanvas');
+            // var offset = startchange.offset();
+            // offset.top-=100;
+            // console.log(offset);
             //  if (startchange.length){
             // $(window).scroll(function() { 
             //    scroll_start = $(this).scrollTop();
@@ -67,7 +67,7 @@ export default class Header extends React.Component {
                 
             // });
             //  }
-            } 
+            // } 
             // else {
                 // document.getElementById('homeButton').addEventListener("click", redirectF);
                 // function redirectF () {
@@ -88,7 +88,6 @@ export default class Header extends React.Component {
         if(sessionStorage.getItem("islogin") == "true" || sessionStorage.getItem("isadmin") == "true"){
             // $('#loginNavv').text('Sing Out');
             // console.log("vlegovvvv");
-            
             document.getElementById("resButton").style.display = 'none';
             document.getElementById("regNavv").style.display = 'none';
             document.getElementById("loginNavv").textContent="PROFILE";
@@ -99,8 +98,6 @@ export default class Header extends React.Component {
             } else if (sessionStorage.getItem("isadmin") == "true") {
                 document.getElementById("loginNavv").href="/admin";
             }
-        } else if ( window.innerWidth >= 1239) {
-            // document.getElementById('hedNav').querySelector('a').style.fontSize = "10px";
         }
         // console.log(sessionStorage.getItem("islogin"));
         // console.log("dadadadadada")
@@ -112,9 +109,10 @@ export default class Header extends React.Component {
     //     window.location.href = "/login";
     // }
     render(){
+console.log(window.innerWidth);
         return(
-            <div id="hedNav">
-                <Navbar fluid fixedTop collapseOnSelect>
+            <div id="hedNavEmpty">
+                <Navbar fixedTop collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand pullLeft>
                         <Image src={logo} responsive />
@@ -123,10 +121,10 @@ export default class Header extends React.Component {
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav pullRight>
-                        <NavItem eventKey={1} id="homeButton" >
+                        <NavItem eventKey={1} id="homeButton" href="/">
                             HOME
                         </NavItem>
-                        <NavItem eventKey={2} id="aboutButton" href="">
+                        <NavItem eventKey={2} id="aboutButton" href="/">
                             ABOUT
                         </NavItem>
                         {/* <NavItem eventKey={2} id="roomButton">
@@ -135,13 +133,13 @@ export default class Header extends React.Component {
                         <NavItem eventKey={2} id="trainButton">
                             TRAINING
                         </NavItem> */}
-                        <NavItem eventKey={2} id="ServicesButton" href="">
+                        <NavItem eventKey={2} id="ServicesButton" href="/">
                             OUR SERVICES
                         </NavItem>
-                        <NavItem eventKey={2} id="contactButton" href="">
+                        <NavItem eventKey={2} id="contactButton" href="/">
                             CONTACT US
                         </NavItem>
-                        <NavItem eventKey={2} id="resButton" href="/res" >
+                        <NavItem eventKey={2} id="resButton"href="/res" >
                             RESERVATION
                         </NavItem>
                         <NavItem eventKey={2} id="loginNavv" href="/login">
@@ -160,6 +158,12 @@ export default class Header extends React.Component {
         );
     }
 }
+
+
+
+
+
+
 
 
 
