@@ -16,6 +16,7 @@ import insta from '../../styles/assets/img/social icons/insta.png';
 import twitter from '../../styles/assets/img/social icons/twitter.png';
 
 export default class Contact extends React.Component {
+
     render(){
         return(
             <div id="contact">

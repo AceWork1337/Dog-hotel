@@ -193,12 +193,27 @@ router.get('/allusers', function(req,res){
         res.send(dbo);
     })
 });
-
+router.get('/allpets', function(req,res){
+    model.findAllPets(function(dbo){
+        res.send(dbo);
+    })
+});
 router.get('/allreservations', function(req,res){
     model.findAllReservations(function(dbo){
         res.send(dbo);
     })
 });
+router.get('/reservationNoLogin', function(req,res){
+    model.findAllReservationsWithoutUsers(function(dbo){
+        res.send(dbo);
+    })
+});
+router.get('/adminreservations', function(req,res){
+    model.findAllContact(function(dbo){
+        res.send(dbo);
+    })
+});
+
 // router.get('/balance1', function(req, res, next) {
 //     var email=req.session.eMail;
 //     var listOfEmail = [];

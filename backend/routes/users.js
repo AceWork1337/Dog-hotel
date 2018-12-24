@@ -27,6 +27,33 @@ router.post('/register', function (req, res) {
         });
     });
 });
+router.post('/contactform', function (req, res) {
+    console.log(req.body);
+    var firstName = req.body.firstName;
+    var email = req.body.email;
+    var req = req.body.req;
+    // var phone = req.body.phone;
+    console.log("parse");
+    model.connectToDb(function (dbo) {
+
+        console.log("Connecting to db");
+
+        var myobj = {firstName:firstName, req: req, email: email};
+        // model.findUser(email, function (usersInfo) {
+            // console.log(usersInfo);
+            // if (usersInfo === null) {
+                dbo.collection("contactform").insertOne(myobj, function (err, usersInfo) {
+                    console.log("contactform created");
+                    res.send(true);
+                });
+            // } 
+            // else {
+            //     res.send(false);
+            //     console.log("contactform already created");
+            // }
+        // });
+    });  
+});
 router.post('/modify', function (req, res) {
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
@@ -256,22 +283,22 @@ router.post('/editform', function (req, res) {
     
 });
 
-router.post('/contactform', function (req, res) {
-    var firstName = req.body.firstName;
-    var email = req.body.email;
-    var phone = parseInt(req.body.phone);
-    var textbox = req.body.textbox;
-    model.connectToDb(function (dbo) {
-        var myobj = {firstName:firstName, email: email, phone:phone, textbox: textbox };
-        dbo.collection("contact-form").insert(myobj, function(err){
-            if (err) {
-                console.log(err);
-            } else {
-                res.send("contact porakata e pratena");
-            }
-        })
-    });
-});
+// router.post('/contactform', function (req, res) {
+//     var firstName = req.body.firstName;
+//     var email = req.body.email;
+//     var phone = parseInt(req.body.phone);
+//     var textbox = req.body.textbox;
+//     model.connectToDb(function (dbo) {
+//         var myobj = {firstName:firstName, email: email, phone:phone, textbox: textbox };
+//         dbo.collection("contact-form").insert(myobj, function(err){
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 res.send("contact porakata e pratena");
+//             }
+//         })
+//     });
+// });
 
 router.post('/presentpets', function (req, res) {
     var email = req.session.eMail;

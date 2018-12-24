@@ -46,6 +46,19 @@ var model = {
             })
         })
     },
+    findAllPets: function (callback) {
+        model.connectToDb(function (dbo) {
+
+            dbo.collection("pets").find().toArray( function (err,db) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Data obtained");
+                    callback(db)
+                }
+            })
+        })
+    },
     findAllReservations: function (callback) {
         model.connectToDb(function (dbo) {
 
@@ -59,8 +72,32 @@ var model = {
             })
         })
     },
-   
+    findAllReservationsWithoutUsers: function (callback) {
+        model.connectToDb(function (dbo) {
 
+            dbo.collection("reservationswithoutlogin").find().toArray( function (err,db) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Data obtained");
+                    callback(db)
+                }
+            })
+        })
+    },
+    findAllContact: function (callback) {
+        model.connectToDb(function (dbo) {
+
+            dbo.collection("contactform").find().toArray( function (err,db) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Data obtained");
+                    callback(db)
+                }
+            })
+        })
+    },
     findBalance: function (email, callback) {
         model.connectToDb(function (dbo) {
             dbo.collection("usersBalance").findOne({email: email}, function (err, userBalance) {
