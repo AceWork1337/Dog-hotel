@@ -241,7 +241,7 @@ router.post('/reservationNoLogin', function (req, res) {
                         console.log(err);
                     } else {
                     console.log("reservation created");
-                    res.send('reservation created');
+                    res.send(true);
                     }
                 });
             }
