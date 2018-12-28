@@ -1,7 +1,7 @@
 //import npm package</div>
 import React from 'react';
 import {Row,Col,Input,Icon,Button,Card,CardTitle} from 'react-materialize';
-import $ from 'jQuery';
+import $ from 'jquery';
 //import components and containers
 
 //import assets

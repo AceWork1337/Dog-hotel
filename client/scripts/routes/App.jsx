@@ -156,16 +156,16 @@ AdminRoute({ component: Component, ...rest }) {
                 {/* <Favicon url={require("../styles/assets/img/favicon/favicon.ico")}/> */}
                 <Headerrender/> 
                 <Switch>
-                  <Route  path="/train" component={Training}/>
-                  <Route  path="/faq" component={Faq}/>
-                  <PrivateRoute  path="/user" component={UserProfile}/>
+                  {/* <Route  path="/train" component={Training}/> */}
+                  {/* <Route  path="/faq" component={Faq}/> */}
+                  {/* <PrivateRoute  path="/user" component={UserProfile}/> */}
                   <Route  path="/reg" component={Register}/>
                   <AdminRoute  path="/admin" exact component={AdminPanel}/>
-                  <Route  path="/contact" component={Contact}/>
+                  {/* <Route  path="/contact" component={Contact}/> */}
                   <Route  path="/res" exact component={Reservation}/>
-                  <Route  path="/About" exact component={About}/>
+                  {/* <Route  path="/About" exact component={About}/> */}
                   <Route  path="/login" component={Login}/>
-                  <Route  path="/accommodation" exact component={Rooms}/>
+                  {/* <Route  path="/accommodation" exact component={Rooms}/> */}
                   <Route  path="/" exact component={Home}/>
                   <Route  component={NotFound}/>
                 </Switch>

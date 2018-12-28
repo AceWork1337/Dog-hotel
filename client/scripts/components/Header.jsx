@@ -147,9 +147,9 @@ export default class Header extends React.Component {
                         <NavItem eventKey={2} id="loginNavv" href="/login">
                             SING IN
                         </NavItem>
-                        <NavItem eventKey={2} id="regNavv" href="/reg">
+                        {/* <NavItem eventKey={2} id="regNavv" href="/reg">
                             REGISTER
-                        </NavItem>
+                        </NavItem> */}
                         {/* <Button waves='light' id="logout" onClick={this.logout}>Sing out</Button> */}
 
                         </Nav>

@@ -1,7 +1,7 @@
 //import npm package
-import React from 'react';
-import {Row, Input,Icon,Button} from 'react-materialize';
-import axios from 'axios';
+import React from "react";
+import {Row, Input,Icon,Button} from "react-materialize";
+import axios from "axios";
 //import components and containers
 
 //import assets
@@ -15,15 +15,16 @@ export default class ContactForm extends React.Component {
     
         this.state = {
          
-          username: '',
-          firstName: '',
-          lastName:'',
-          email:'',
-          password:'',
-          phone:'',
-          req:'',
+          username: "",
+          firstName: "",
+          lastName:"",
+          email:"",
+          password:"",
+          phone:"",
+          req:"",
           islogin:false,
           isadmin:false,
+          status:"",
         }
       }
 
@@ -47,10 +48,18 @@ export default class ContactForm extends React.Component {
           
         console.log(user)
         var self =this;
-        axios.post(`http://localhost:3001/contactform`, user,{headers:{'Content-Type':'application/json'}})
+        axios.post(`http://localhost:3001/contactform`, user,{headers:{"Content-Type":"application/json"}})
           .then(res => {
             console.log("res");
             console.log(res);
+            if (res.data == true) {
+                const status = res.data;
+                this.setState({ status });
+                console.log(this.state.status);
+                // component.forceUpdate();
+                // this.setState(status=true);
+                // this.shouldComponentUpdate();
+            }
             // console.log(res.data);
             // let userlogin = res.data[0].user;
             // let adminlogin = res.data[1].admin;
@@ -70,20 +79,29 @@ export default class ContactForm extends React.Component {
 
           // )
       };
+      
     render(){
         return(
             <div className="contactForm">
                 <Row>
                     <form onSubmit={this.handleSubmit}>
-                        <Input s={10} name="firstName" label="First Name"  onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
-                        <Input s={10} name="email" label="e-mail"  type='email' onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
-                        
-                        <Input s={10} name="phone" label="Phone"   onChange={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
-                        <Input s={10} name="req" label="Your message" type='textarea' onChange={this.handleChange.bind(this)}/>
-                        <Button waves='light' type="submit">Send</Button>
+                        <Input s={10} name="firstName" label="First Name" onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
+                        <Input s={10} name="email" label="e-mail" type="email" onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
+                        <Input s={10} name="phone" label="Phone" onChange={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
+                        <Input s={10} name="req" label="Your message" type="textarea" onChange={this.handleChange.bind(this)}/>
+                        <Button waves="light" type="submit" onClick={() => {window.Materialize.toast("Contact form send!", 5000)}}>Send</Button>
                     </form>
                 </Row>
             </div>
         );
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.state.status.value != nextState.status.value;
+      }
+      componentWillUpdate(nextProps, nextState) {
+          if(this.shouldComponentUpdate()==true){
+            this.render();
+          }
+      }
 }
+ 
