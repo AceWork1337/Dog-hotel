@@ -44,23 +44,24 @@ export default class AdminDash extends React.Component {
             
         }
         let user =JSON.stringify( {
-          username: this.state.username,
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          email: sessionStorage.getItem("eMail"),
-          password: this.state.password,
-          phone: this.state.phone,
-          petID: this.state.petID,
-          petNickname: this.state.petNickname,
-          Breeds: this.state.Breeds,
-          group1: this.state.group1,
-          on: this.state.on,
-          chipID: this.state.chipID
+            username: this.state.username,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+        //   email: sessionStorage.getItem("eMail"),
+            email: this.state.email,
+            password: this.state.password,
+            phone: this.state.phone,
+            petID: this.state.petID,
+            petNickname: this.state.petNickname,
+            Breeds: this.state.Breeds,
+            group1: this.state.group1,
+            on: this.state.on,
+            chipID: this.state.chipID
           
 
         });
         console.log(user)
-        axios.post(`http://localhost:3001/modify`, user,{headers:{'Content-Type':'application/json'}})
+        axios.post(`http://localhost:3001/adduser`, user,{headers:{'Content-Type':'application/json'}})
           .then(res => {
             console.log(res);
             console.log(res.data);
@@ -93,7 +94,7 @@ export default class AdminDash extends React.Component {
                     <Input s={6} type="text" label="Add Last Name" name="lastName" onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
                     <Input s={6} type="text" label="Add User Name" name="username" onChange={this.handleChange.bind(this)}><Icon>person</Icon></Input>
                     <Input type="password" label="Add password" s={6} name="password" onChange={this.handleChange.bind(this)}><Icon>lock</Icon></Input>
-                    {/* <Input type="email" label="Change Email" s={6} ><Icon>email</Icon></Input> */}
+                    <Input type="email" name="email" label="Change Email" s={6} onChange={this.handleChange.bind(this)}><Icon>email</Icon></Input>
                     <Input s={6} label="Add Telephone" validate type='number' name="phone" onChange={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
                     </Row>
                     <hr/>
@@ -118,7 +119,7 @@ export default class AdminDash extends React.Component {
                         <Input s={6} name='group1' type='radio' value='masko' label='mashko' className='with-gap'  onChange={this.handleChange.bind(this)}/>
                         <Input s={6} name='group1' type='radio' value='zensko' label='zensko' className='with-gap' onChange={this.handleChange.bind(this)}/>
                     </Row>
-                    <Autocomplete
+                    <Input
                             icon='pets'
                             s={4}
                             placeholder='Breeds'

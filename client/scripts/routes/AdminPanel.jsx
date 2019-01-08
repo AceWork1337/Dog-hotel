@@ -71,8 +71,8 @@ export default class AdminPanel extends React.Component {
                                 <Route  path="/admin" exact component={AdminDash}/>
                                 <Route  path="/admin/users" exact component={Users}/>
                                 <Route  path="/admin/pets" exact component={Pets}/>
-                                <Route  path="/admin/present" exact component={Present}/>
-                                <Route  path="/admin/past" exact component={Past}/>
+                                {/* <Route  path="/admin/present" exact component={Present}/> */}
+                                {/* <Route  path="/admin/past" exact component={Past}/> */}
                                 <Route  path="/admin/reservation" exact component={ReservationsAdmin}/>
                                 <Route  path="/admin/reservationNoLogin" exact component={ReservationNoLogin}/>
                                 <Route  path="/admin/contact-questions" exact component={ContactAdmin}/>

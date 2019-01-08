@@ -118,6 +118,8 @@ router.get('/allreservations', function(req,res){
 router.get('/reservationNoLogin', function(req,res){
     model.findAllReservationsWithoutUsers(function(dbo){
         res.send(dbo);
+        console.log("dbo");
+        console.log(dbo);
     })
 });
 router.get('/adminreservations', function(req,res){

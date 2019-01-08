@@ -48,6 +48,7 @@ export default class reservationNoLogin extends React.Component {
         // setInterval(this.renderMovies, 1000);
         console.log("aceace");
         console.log(this.renderMovies());
+        console.log(this.state.persons);
         return(
             <div id="pets">
             {/* {this.renderMovies()} */}
@@ -81,7 +82,7 @@ export default class reservationNoLogin extends React.Component {
                                                 <td>Pet ID:&ensp;{person.petID}</td>
                                                 <td>Sex:&ensp;{person.group1}</td>
                                                 <td>Pet nick name:&ensp;{person.petNickname}</td>
-                                                
+                                                <td><input type="checkbox"/></td>
                                                 {/* <td>email:{person.email}</td> */}
                                                 {/* <td>Breeds:{person.Breeds}</td> */}
                                                 

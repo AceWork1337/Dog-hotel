@@ -90,7 +90,7 @@ export default class Header extends React.Component {
             // console.log("vlegovvvv");
             
             document.getElementById("resButton").style.display = 'none';
-            document.getElementById("regNavv").style.display = 'none';
+            // document.getElementById("regNavv").style.display = 'none';
             document.getElementById("loginNavv").textContent="PROFILE";
             document.getElementById("regNavv").style.display = 'none';
             // document.getElementById("logout").style.display = 'block';

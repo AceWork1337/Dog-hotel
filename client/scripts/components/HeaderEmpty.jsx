@@ -89,9 +89,9 @@ export default class HeaderEmpry extends React.Component {
             // $('#loginNavv').text('Sing Out');
             // console.log("vlegovvvv");
             document.getElementById("resButton").style.display = 'none';
-            document.getElementById("regNavv").style.display = 'none';
+            // document.getElementById("regNavv").style.display = 'none';
             document.getElementById("loginNavv").textContent="PROFILE";
-            document.getElementById("regNavv").style.display = 'none';
+            // document.getElementById("regNavv").style.display = 'none';
             // document.getElementById("logout").style.display = 'block';
             if (sessionStorage.getItem("islogin") == "true") {
                 document.getElementById("loginNavv").href="/user";
