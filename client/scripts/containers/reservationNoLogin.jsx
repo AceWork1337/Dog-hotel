@@ -73,10 +73,12 @@ export default class reservationNoLogin extends React.Component {
                                                 <td>Breeds:&ensp;{person.breeds}</td>
                                                 <td>Quantity:&ensp;{person.quantity}</td>
                                                 <td>Sex:&ensp;{person.sex}</td>
+                                                </tr><tr>
                                                 <td>Pick Date To:&ensp;{person.PickDateTo}</td>
                                                 <td>Pick Date From:&ensp;{person.PickDateFrom}</td>
                                                 <td>Contact phone:&ensp;{person.phone}</td>
                                                 <td>Requirements:&ensp;{person.Requirements}</td>
+                                                </tr><tr>
                                                 <td>Birthday:&ensp;{person.BirthdayDog}</td>
                                                 <td>Chip ID:&ensp;{person.chipID}</td>
                                                 <td>Pet ID:&ensp;{person.petID}</td>

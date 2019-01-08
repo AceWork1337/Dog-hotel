@@ -37,33 +37,13 @@ export default class AdminPanel extends React.Component {
                         <Col s={2} id="BBlock">
                     <Col s={12}>
                            
-                            <SideNav
-                            trigger={<Button>Admin menu</Button>}
-                            options={{ closeOnClick: true }}
-                            >
-                            <SideNavItem userView
-                                user={{
-                                    background: require('../../styles/assets/img/samojed.jpeg'),
-                                    image: require('../../styles/assets/img/samojed.jpeg'),
-                                    name: 'John Doe',
-                                    email: 'jdandturk@gmail.com'
-                                }}
-                            />
-                            {/* <SideNavItem  icon='cloud'><Link to='#!icon'/>First Link With Icon</SideNavItem> */}
-                            
-                            <SideNavItem ><NavLink exact to='/admin/users'>Users</NavLink></SideNavItem>
-                            <SideNavItem ><NavLink exact to='/admin/pets'>Pets</NavLink></SideNavItem>
-                            <SideNavItem ><NavLink exact to='/admin/reservation'>Reservations</NavLink></SideNavItem>
-                            <SideNavItem ><NavLink exact to='/admin/reservationNoLogin'>Reservations without user</NavLink></SideNavItem>
-                            <SideNavItem ><NavLink exact to='/admin/contact-questions'>Contact-questions</NavLink></SideNavItem>
-                            <SideNavItem divider />
-                            <SideNavItem subheader>Tekovni</SideNavItem>
-                            <SideNavItem waves ><NavLink exact to='/admin/bill'>Presmetka</NavLink></SideNavItem>
-                            </SideNav>
+                            <Button ><NavLink  to='/admin/users'>Users</NavLink></Button>
+                            <Button ><NavLink  to='/admin/pets'>Pets</NavLink></Button>
+                            {/* <Button ><NavLink exact to='/admin/reservation'>Reservations</NavLink></Button> */}
+                            <Button ><NavLink  to='/admin/reservationNoLogin'>Reservations without user</NavLink></Button>
+                            <Button ><NavLink  to='/admin/contact-questions'>Contact-questions</NavLink></Button>
+                            <Button waves='light' id="logout" onClick={this.logout}>Sing out</Button>
                         </Col>
-                        <Col s={12}>
-                                <Button waves='light' id="logout" onClick={this.logout}>Sing out</Button>
-                            </Col>
                         </Col>
                         <Col s={10}>
                         

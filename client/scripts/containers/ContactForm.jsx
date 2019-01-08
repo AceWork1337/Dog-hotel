@@ -78,8 +78,8 @@ export default class ContactForm extends React.Component {
                         <Input s={10} name="firstName" label="First Name"  onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
                         <Input s={10} name="email" label="e-mail"  type='email' onChange={this.handleChange.bind(this)}><Icon>account_circle</Icon></Input>
                         
-                        <Input s={10} name="phone" label="Phone"   onChange={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
-                        <Input s={10} name="req" label="Your message" type='textarea' onChange={this.handleChange.bind(this)}/>
+                        <Input s={10} name="phone" label="Phone" Change={this.handleChange.bind(this)}><Icon>phone</Icon></Input>
+                        <Input s={10} name="req" label="Your mess  onage" type='textarea' onChange={this.handleChange.bind(this)}/>
                         <Button waves='light' type="submit">Send</Button>
                     </form>
                 </Row>
