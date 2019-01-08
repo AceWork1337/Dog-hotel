@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h1 Market
+  p Welcome to Market
+
+  form(method="post" name="insertname" action="users/buy")
+    label Buy (choose a coin)
+      br
+      select(name="coin")
+        each coin in coins
+          option(value="#{coin.name}") #{coin.name}
+      br
+    label Amount
+      br
+      input(name="amo" type="number" value="0" step="0.01")
+      br
+    label Price
+      br
+      input(name="priceEth" type="number" value="0" step="0.01")
+      br
+      br
+
+      button(type='submit' name="buy") buy
+      br
+      br
+  form(method="post" name="insertname" action="users/sell")
+    label Sell (choose a coin)
+      br
+      select(name="coin")
+        each coin in coins
+          option(value="#{coin.name}") #{coin.name}
+      br
+    label Amount
+      br
+      input(name="amo" type="number" value="0" step="0.01")
+      br
+    label Price
+      br
+      input(name="priceEth" type="number" value="0" step="0.01")
+      br
+      br
+      button(type='submit' name="sell") sell
+  a(href="dash")
+    button(id="back" type='Submit') back to profile

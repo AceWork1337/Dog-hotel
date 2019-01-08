@@ -1,0 +1,52 @@
+{
+  "name": "React-structute-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/AceWork1337/React-structute-template.git",
+  "author": "aleksandar <ace92.work@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --hot --open"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/runtime": "^7.1.2",
+    "animate.css": "^3.7.0",
+    "axios": "^0.18.0",
+    "babel-plugin-react-flow-props-to-prop-types": "^0.15.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-upgrade": "^0.0.23",
+    "css-loader": "^1.0.0",
+    "google-map-react": "^1.0.9",
+    "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.3.1",
+    "mdbreact": "^4.8.2",
+    "node-sass": "^4.9.3",
+    "path": "^0.12.7",
+    "react": "^16.4.2",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.5.2",
+    "react-favicon": "^0.0.14",
+    "react-materialize": "^2.4.7",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "file-loader": "^1.1.11"
+  }
+}
