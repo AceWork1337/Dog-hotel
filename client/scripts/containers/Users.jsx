@@ -58,7 +58,7 @@ export default class Users extends React.Component {
                         { this.state.persons.map(person => 
                             <Row>
                                 <Col s={12}>
-                                    <Table bordered>
+                                    <Table responsive bordered>
                                         <thead>
                                             <tr>
                                                 <th>Username:&ensp;&ensp;{person.username}</th>

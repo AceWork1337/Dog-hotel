@@ -34,8 +34,8 @@ export default class AdminPanel extends React.Component {
               <div id="userProfileDiv">
               <Row>
               <Col s={12}>
-                        <Col s={2} id="BBlock">
-                    <Col s={12}>
+                        <Col s={11} l={2} id="BBlock">
+                    {/* <Col s={12}>
                            
                             <SideNav
                             trigger={<Button>Admin menu</Button>}
@@ -48,10 +48,10 @@ export default class AdminPanel extends React.Component {
                                     name: 'John Doe',
                                     email: 'jdandturk@gmail.com'
                                 }}
-                            />
+                            /> */}
                             {/* <SideNavItem  icon='cloud'><Link to='#!icon'/>First Link With Icon</SideNavItem> */}
                             
-                            <SideNavItem ><NavLink exact to='/admin/users'>Users</NavLink></SideNavItem>
+                            {/* <SideNavItem ><NavLink exact to='/admin/users'>Users</NavLink></SideNavItem>
                             <SideNavItem ><NavLink exact to='/admin/pets'>Pets</NavLink></SideNavItem>
                             <SideNavItem ><NavLink exact to='/admin/reservation'>Reservations</NavLink></SideNavItem>
                             <SideNavItem ><NavLink exact to='/admin/reservationNoLogin'>Reservations without user</NavLink></SideNavItem>
@@ -60,12 +60,18 @@ export default class AdminPanel extends React.Component {
                             <SideNavItem subheader>Tekovni</SideNavItem>
                             <SideNavItem waves ><NavLink exact to='/admin/bill'>Presmetka</NavLink></SideNavItem>
                             </SideNav>
-                        </Col>
-                        <Col s={12}>
+                        </Col> */}
+                        {/* <Col s={12}> */}
+                        <Button><NavLink to='/admin'>Add Users</NavLink></Button>
+                        <Button><NavLink to='/admin/users'>Users</NavLink></Button>
+                            <Button><NavLink to='/admin/pets'>Pets</NavLink></Button>
+                            {/* <Button><NavLink exact to='/admin/reservation'>Reservations</NavLink></Button> */}
+                            <Button><NavLink exact to='/admin/reservationNoLogin'>Reservations</NavLink></Button>
+                            <Button><NavLink exact to='/admin/contact-questions'>Contact-questions</NavLink></Button>
                                 <Button waves='light' id="logout" onClick={this.logout}>Sing out</Button>
-                            </Col>
+                            {/* </Col> */}
                         </Col>
-                        <Col s={10}>
+                        <Col s={12} l={9}>
                         
                             <Switch>
                                 <Route  path="/admin" exact component={AdminDash}/>

@@ -58,7 +58,7 @@ export default class ContactAdmin extends React.Component {
                         { this.state.persons.map(person => 
                             <Row>
                                 <Col s={12}>
-                                    <Table bordered>
+                                    <Table responsive bordered>
                                         <thead>
                                             <tr>
                                                 <th>First name :&ensp;&ensp;{person.firstName}</th>

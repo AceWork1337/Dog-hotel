@@ -1,9 +1,13 @@
 #BBlock {
     // display: block;
-    margin-top: 5%;
+    margin-top: 150px;
     button {
         width: 73%;
         margin-bottom: 3%;
+        a {
+            color: #fff;
+            font-size: 0.8rem;
+        }
     }
 }
 #userProfileDiv {

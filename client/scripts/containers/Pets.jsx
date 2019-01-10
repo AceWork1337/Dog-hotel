@@ -56,9 +56,9 @@ export default class Pets extends React.Component {
                     {/* <Col s={4}> */}
                         <h3>List of pets</h3>
                         { this.state.persons.map(person => 
-                            <Row>
-                                <Col s={12}>
-                                    <Table bordered>
+                            // <Row>
+                            //     <Col s={12}>
+                                    <Table responsive bordered>
                                         <thead>
                                             <tr>
                                                 <th>Owner:&ensp;&ensp;{person.email}</th>
@@ -77,8 +77,8 @@ export default class Pets extends React.Component {
                                             </tr>
                                         </tbody>
                                     </Table>    
-                                </Col>
-                            </Row>
+                            //     </Col>
+                            // </Row>
                         )}
                     {/* </Col> */}
                     {/* <Col s={3}>

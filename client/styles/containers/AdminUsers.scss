@@ -1,5 +1,5 @@
 #users {
-    width: 60%;
+    // width: 60%;
     padding: 45px;
     padding-bottom: 5%;
     padding-top: 5%;
@@ -15,21 +15,52 @@
     }
 }
 #pets {
-    width: 85%;
+    width: 100%;
     padding: 45px;
     padding-bottom: 5%;
     padding-top: 5%;
     margin-top: 3%;
     border: 2px outset gainsboro;
-    margin-left: 5%;
+    // margin-left: 5%;
+    margin-right: -1%;
+    box-shadow: -10px 9px 20px 5px cadetblue;    
+    background-color: antiquewhite;
+    font-family: 'gly';
+    tr {
+        border-top: none;
+        border: 4px solid #d0d0d0;
+    }
+    table {
+        margin-bottom: 30px;
+    }
+}
+#petsres {
+    width: 100%;
+    padding: 45px;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    margin-top: 3%;
+    border: 2px outset gainsboro;
+    // margin-left: 5%;
     margin-right: -1%;
     box-shadow: -10px 9px 20px 5px cadetblue;    
     background-color: antiquewhite;
     font-family: 'gly';
     tr {
         border: 4px solid #d0d0d0;
+        border-top: none;
+    }
+    table {
+        margin-bottom: 30px;
     }
 }
 #sidenav_0{
     margin-top: 50px;
+}
+@media only screen and (max-width:993px){
+    #users {
+        tr {
+            display: block;
+        }
+    }
 }

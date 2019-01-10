@@ -18,7 +18,7 @@ import Training from '../containers/Training.jsx';
 import Contact from '../containers/Contact.jsx';
 import '../../styles/routes/Home.scss';
 //import assets
-import SamoyedWall from '../../styles/assets/img/SamoyedWall.jpg';
+import SamoyedWall from '../../styles/assets/img/samoyedWall.jpg';
 import SamoyedWhite from '../../styles/assets/img/SamoyedWhite.jpg';
 import pethealth from '../../styles/assets/img/pet-health.jpg';
 import pethotel from '../../styles/assets/img/pet-hotel.jpg';

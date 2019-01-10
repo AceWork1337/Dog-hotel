@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Row, Col, Input, Icon, Button, Card, CardTitle, SideNav, SideNavItem ,Table} from 'react-materialize';
-
+import $ from 'jquery';
 import '../../styles/containers/AdminUsers.scss';
 export default class reservationNoLogin extends React.Component {
     state = {
@@ -41,7 +41,14 @@ export default class reservationNoLogin extends React.Component {
                 this.setState({ persons });
             })
         }
-
+componentDidMount(){
+    if($(window).width()>=992){
+        $('.disRow').css("display", "none");
+    } else {
+        $('.disRow').css("display", "block");
+    }
+    // $('')
+}
         
     // }
     render(){
@@ -49,8 +56,9 @@ export default class reservationNoLogin extends React.Component {
         console.log("aceace");
         console.log(this.renderMovies());
         console.log(this.state.persons);
+        console.log($(window).width());
         return(
-            <div id="pets">
+            <div id="petsres">
             {/* {this.renderMovies()} */}
             <Row>
                 <Col s={12}>
@@ -59,25 +67,37 @@ export default class reservationNoLogin extends React.Component {
                         { this.state.persons.map(person => 
                             <Row>
                                 <Col s={12}>
-                                    <Table bordered>
+                                    <Table responsive bordered>
+                                        <Row className="disRow">
                                         <thead>
                                             <tr>
                                                 <th>User:&ensp;&ensp;{person.email}</th>
                                             </tr>
                                         </thead>
+                                        </Row>
+                                        <Row className="disRow">
                                         <tbody>
+                                        <Row className="disRow">
                                             <tr>
+                                                
                                                 <td>First name:&ensp;{person.FirstName}</td>
                                                 <td>Last name:&ensp;{person.LastName}</td>
                                                 {/* <td>User phone:{person.user_phone}</td> */}
                                                 <td>Breeds:&ensp;{person.breeds}</td>
                                                 <td>Quantity:&ensp;{person.quantity}</td>
                                                 <td>Sex:&ensp;{person.sex}</td>
+                                                </tr>
+                                                </Row>
+                                                <Row className="disRow">
+                                                <tr>
                                                 <td>Pick Date To:&ensp;{person.PickDateTo}</td>
                                                 <td>Pick Date From:&ensp;{person.PickDateFrom}</td>
                                                 <td>Contact phone:&ensp;{person.phone}</td>
                                                 <td>Requirements:&ensp;{person.Requirements}</td>
                                                 <td>Birthday:&ensp;{person.BirthdayDog}</td>
+                                                </tr></Row>
+                                                <Row className="disRow">
+                                                <tr>
                                                 <td>Chip ID:&ensp;{person.chipID}</td>
                                                 <td>Pet ID:&ensp;{person.petID}</td>
                                                 <td>Sex:&ensp;{person.group1}</td>
@@ -89,8 +109,11 @@ export default class reservationNoLogin extends React.Component {
                                                 
                                                 {/* <td>Chip ID:{person.chipID}</td> */}
                                                 
-                                            </tr>
+                                            </tr></Row>
                                         </tbody>
+                            <hr/>
+
+                                        </Row>
                                     </Table>    
                                 </Col>
                             </Row>
