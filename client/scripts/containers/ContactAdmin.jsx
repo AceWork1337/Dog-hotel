@@ -22,7 +22,7 @@ export default class ContactAdmin extends React.Component {
 
     // componentWillMount(){
         renderMovies = () => {
-            axios.get("http://localhost:3001/adminreservations")
+            axios.get("http://34.244.230.153/backend/adminreservations")
             .then(res => {
                 console.log(res.data);
                 var movies=res.data;

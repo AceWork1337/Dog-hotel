@@ -61,7 +61,7 @@ export default class MakeReservationUser extends React.Component {
         });
           
         console.log(user)
-        axios.post(`http://localhost:3001/reservation`, user,{headers:{'Content-Type':'application/json'}})
+        axios.post('http://34.244.230.153/backend/reservation', user,{headers:{'Content-Type':'application/json'}})
           .then(res => {
             console.log(res);
             console.log(res.data);

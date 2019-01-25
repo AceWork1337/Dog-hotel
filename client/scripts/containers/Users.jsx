@@ -22,7 +22,7 @@ export default class Users extends React.Component {
 
     // componentWillMount(){
         renderMovies = () => {
-            axios.get("http://localhost:3001/allusers")
+            axios.get("http://34.244.230.153/backend/allusers")
             .then(res => {
                 console.log(res.data);
                 var movies=res.data;

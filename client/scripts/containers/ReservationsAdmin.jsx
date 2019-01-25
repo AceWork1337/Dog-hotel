@@ -22,7 +22,7 @@ export default class ReservationsAdmin extends React.Component {
 
     // componentWillMount(){
         renderMovies = () => {
-            axios.get("http://localhost:3001/allreservations")
+            axios.get("http://34.244.230.153/backend/allreservations")
             .then(res => {
                 console.log(res.data);
                 var movies=res.data;

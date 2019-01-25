@@ -48,7 +48,7 @@ export default class ContactForm extends React.Component {
           
         console.log(user)
         var self =this;
-        axios.post(`http://localhost:3001/contactform`, user,{headers:{"Content-Type":"application/json"}})
+        axios.post(`http://34.244.230.153/backend/contactform`, user,{headers:{"Content-Type":"application/json"}})
           .then(res => {
             console.log("res");
             console.log(res);
