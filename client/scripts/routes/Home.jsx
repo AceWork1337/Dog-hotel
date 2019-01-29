@@ -2,7 +2,9 @@
 import React from 'react';
 import {Carousel,Grid,Row,Col,Image} from 'react-bootstrap';
 import { Slider, Slide } from 'react-materialize';
+import { ParallaxProvider } from 'react-scroll-parallax';
 //import components and containers
+import HomeParalax from '../containers/HomeParalax.jsx';
 // import Home from '../routes/Home.jsx';
 // import UserProfile from '../routes/UserProfile.jsx';
 // import AdminPanel from '../routes/AdminPanel.jsx';
@@ -28,51 +30,11 @@ export default class Home extends React.Component {
     render() {
         return (
            <div className="home-page">
-                 {/* <Carousel >
-                    <Carousel.Item>
-                        <img alt="900x500" src={SamoyedWall} />
-                        <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img  alt="900x500" src={SamoyedWall} />
-                        <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img  alt="900x500" src={SamoyedWall} />
-                        <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>  */}
-                <Grid fluid>
-                 <Slider id="topMedia">
-                    <Slide
-                        src={SamoyedWall}
-                        
-                        title="DAYCARE">
-                        Our doggie daycare consists of 2 separate outdoor dog parks.
-                    </Slide>
-                    <Slide
-                        src={SamoyedWhite}
-                        title="CHAUFFEUR"
-                        placement="left"
-                    >
-                        Too busy to drop your loved one off?.
-                    </Slide>
-                    <Slide
-                        src={SamoyedWall}
-                        title="GROOMING"
-                        placement="right">
-                        Your pooch will enjoy the ultimate in our hotel.
-                    </Slide>
-                </Slider>                
+           <Grid fluid>
+            <ParallaxProvider>
+                <HomeParalax/>
+            </ParallaxProvider>
+                    
                 <About/>
                 {/* <Rooms/>
                 <Training/>
