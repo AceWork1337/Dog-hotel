@@ -31,9 +31,9 @@ export default class Home extends React.Component {
         return (
            <div className="home-page">
            <Grid fluid>
-            <ParallaxProvider>
+            {/* <ParallaxProvider> */}
                 <HomeParalax/>
-            </ParallaxProvider>
+            {/* </ParallaxProvider> */}
                     
                 <About/>
                 {/* <Rooms/>

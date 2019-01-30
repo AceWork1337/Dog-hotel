@@ -16,6 +16,32 @@
     overflow-x:hidden;
     margin-top: 45px;
     width: 100%;
+    #ss {
+        width: 100%;
+        height: auto;
+        position: relative;
+
+    }
+    .home-page-paralax{
+        // background-image: url('../../styles/assets/img/cipo-houseslider.png');
+        // background-size: cover;
+        // display: flex;
+         div > div:nth-child(1) > img {
+             width: 100%;
+         }
+        figure {
+            width: 20%;
+            div {
+                img {
+                    // margin-left: -86px;
+                    // margin-top: 581px;
+                    // width: 100%;
+                    // bottom: 0;
+
+                }
+            }
+        }
+    }
     #section1{
         background-color: black;
         opacity: 0.5;
@@ -78,6 +104,41 @@
                 width: 80%;
                 text-align: center;
                 
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1855px){
+    .home-page{
+        .home-page-paralax{
+            div {
+                div {
+                    div:nth-child(1){
+                        img {
+                            width: 70%
+
+                        }
+                    }
+                }
+                // margin-left: 
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1555px){
+    .home-page{
+        .home-page-paralax{
+            div {
+                div {
+                    div:nth-child(1){
+                        margin-top: 65%!important;
+                        img {
+                            width: 60%
+
+                        }
+                    }
+                }
+                // margin-left: 
             }
         }
     }
