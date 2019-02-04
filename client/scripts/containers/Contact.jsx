@@ -30,11 +30,11 @@ export default class Contact extends React.Component {
                             <div className="hotelInfo" data-wow-delay="0.2s">
                                 <h4>Information</h4>
                                 <p>Contact for additional information:</p>
-                                <p><i className="fa fa-envelope"></i><Icon>mail</Icon><a href="mailto:youremailaddress">petshop@site.com</a> or call us</p>
-                                <p><i className="fa fa-phone"></i><Icon>phone</Icon>+1 (123) 456 7890</p>
+                                <div style={{display:'inline-flex',width:'100%'}}><Icon>mail</Icon><p><i className="fa fa-envelope"></i><a href="mailto:youremailaddress">petshop@site.com</a> or call us</p></div>
+                                <div style={{display:'inline-flex'}}><Icon>phone</Icon><p><i className="fa fa-phone"></i>+1 (123) 456 7890</p></div>
                                 <h4>Location & Time</h4>
-                                <p><i className="fa fa-map-marker"><Icon>home</Icon></i>We are located at Pet City, 304.</p>
-                                <p className="openHours"><i ></i><Icon>access_time</Icon>Open from 9 a.m to 10 p.m on weekdays and from 9 a.m to 2 p.m in weekends.</p>
+                                <div style={{display:'inline-flex'}}><Icon>home</Icon><p><i className="fa fa-map-marker"></i>We are located at Pet City, 304.</p></div>
+                                <div style={{display:'inline-flex'}}><Icon>access_time</Icon><p className="openHours"><i ></i>Open from 9 a.m to 10 p.m on weekdays and from 9 a.m to 2 p.m in weekends.</p></div>
                             </div>
                         </Col>
                         <Col sm ={12} md={7}>
