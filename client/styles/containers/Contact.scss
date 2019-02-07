@@ -15,17 +15,20 @@
         }
     h4 {
         text-align: center;
-        font-family: 'gly';
+        // font-family: 'gly';
+        font-family: sans-serif;
     }
     .hotelInfo {
         a {
             color: rgb(53, 128, 120);
         }
         h4 {
-            font-family: 'gly';
+            // font-family: 'gly';
+            font-family: sans-serif;
         }
         p {
-            font-family: 'gly';
+            // font-family: 'gly';
+            font-family: sans-serif;
         }
         .openHours {
             width: 60%;
@@ -57,6 +60,7 @@
     #copyright {
         color: black;
         padding-top: 1%;
-        font-family: 'gly'; 
+        // font-family: 'gly'; 
+        font-family: sans-serif;
     }
 }

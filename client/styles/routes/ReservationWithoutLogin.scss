@@ -18,7 +18,8 @@
     border: 2px outset gainsboro;
     box-shadow: -10px 9px 20px 5px cadetblue;
     background-color: antiquewhite;
-    font-family: 'gly';
+    // font-family: 'gly';
+    font-family: sans-serif;
     [type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
         margin-top: 20px;
     }
