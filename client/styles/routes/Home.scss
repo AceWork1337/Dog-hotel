@@ -23,14 +23,17 @@
 
     }
     .home-page-paralax{
+         div > div:nth-child(1) > img{
+             height: 100%;
+         }
         // background-image: url('../../styles/assets/img/cipo-houseslider.png');
         // background-size: cover;
         // display: flex;
-         div > div:nth-child(1) > img {
+         div > div > img {
              width: 100%;
          }
         figure {
-            width: 20%;
+            // width: 20%;
             // div {
                 // img {
                     // margin-left: -86px;
