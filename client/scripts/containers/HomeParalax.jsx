@@ -56,12 +56,15 @@ export default class HomeParalax extends React.Component {
     }
     const style = {
       outter: {
-        // backgroundImage: `url(${HouseImg})`,
-        // backgroundPosition: 'center',
-        // backgroundSize: 'cover',
-        width: '100%',
+        backgroundImage: `url(${HouseImg})`,
+        backgroundPosition: '0px 0px',
+        backgroundSize: '100%',
+        backgroundRepeat: 'no-repeat',
+
+        // backgroundPositionY: '0',
+        // width: '100%',
         // height:'1440px',
-        position: 'relative',
+        // position: 'relative',
         overflow: 'hidden'
       },
       inner: {
@@ -142,54 +145,11 @@ export default class HomeParalax extends React.Component {
     }
     return (
       <Row>
-      <div className="home-page-paralax" style={style}>
+      <div className="home-page-paralax" style={style.outter}>
 
-        <ParallaxMousemove containerStyle={style.outter} fullHeight={true}>
-
-          <ParallaxMousemove.Layer layerStyle={style.bgLayerStyle2} config={{
-            xFactor: 0,
-            yFactor: 0,
-            springSettings: {
-              stiffness: 50,
-              damping: 30
-            }
-          }}>
-          <img src={HouseImg} alt="Parallax Layer"></img>
-          </ParallaxMousemove.Layer>
-          {/* <div style={style.inner}> */}
-            <ParallaxMousemove.Layer layerStyle={style.bgLayerStyle} config={{
-              xFactor: 0,
-              yFactor: -0.5,
-              springSettings: {
-                stiffness: 50,
-                damping: 50
-              }
-            }}>
-              <img src={DogImgHead} alt="Parallax Layer"></img>
-            </ParallaxMousemove.Layer>
-
-            <ParallaxMousemove.Layer layerStyle={style.infoLayerStyle} config={{
-              xFactor: -0.6,
-              yFactor: 0,
-              springSettings: {
-                stiffness: 80,
-                damping: 20
-              }
-            }}>
-              <img src={DogImg1} alt="Parallax Layer"></img>
-            </ParallaxMousemove.Layer>
-            <ParallaxMousemove.Layer layerStyle={style.infoLayerStyle2} config={{
-              xFactor: 0,
-              yFactor: -1.2,
-              springSettings: {
-                stiffness: 80,
-                damping: 20
-              }
-            }}>
-              <img src={DogImg} alt="Parallax Layer"></img>
-            </ParallaxMousemove.Layer>
-          {/* </div> */}
-        </ParallaxMousemove>
+      <Parallax className="custom-class" x={[-20, 20]} tagOuter="figure">
+        <Image src={DogImg1} className="goldDog" />
+    </Parallax>
       </div>
       </Row>
     );
