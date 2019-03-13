@@ -31,10 +31,10 @@ export default class Contact extends React.Component {
                                 <h4>Information</h4>
                                 <p>Contact for additional information:</p>
                                 <div style={{display:'inline-flex',width:'100%'}}><Icon>mail</Icon><p><i className="fa fa-envelope"></i><a href="mailto:youremailaddress">petshop@site.com</a> or call us</p></div>
-                                <div style={{display:'inline-flex'}}><Icon>phone</Icon><p><i className="fa fa-phone"></i>+1 (123) 456 7890</p></div>
+                                <div style={{display:'inline-flex'}}><Icon>phone</Icon><p><i className="fa fa-phone"></i>+389 78 458 981</p></div>
                                 <h4>Location & Time</h4>
-                                <div style={{display:'inline-flex'}}><Icon>home</Icon><p><i className="fa fa-map-marker"></i>We are located at Pet City, 304.</p></div>
-                                <div style={{display:'inline-flex'}}><Icon>access_time</Icon><p className="openHours"><i ></i>Open from 9 a.m to 10 p.m on weekdays and from 9 a.m to 2 p.m in weekends.</p></div>
+                                <div style={{display:'inline-flex'}}><Icon>home</Icon><p><i className="fa fa-map-marker"></i>Ul 2 br 88 Bardovci, Skopje</p></div>
+                                <div style={{display:'inline-flex'}}><Icon>access_time</Icon><p className="openHours"><i ></i>Open from 9 a.m to 9 p.m every day</p></div>
                             </div>
                         </Col>
                         <Col sm ={12} md={7}>
@@ -66,7 +66,7 @@ export default class Contact extends React.Component {
                 <Row className="show-grid">
                         <Col md={7}>
                             <ul className="socialI">
-                                <li><img src={facebook}/></li>
+                                <li><img href="https://www.facebook.com/pg/ciposhousehotel/" src={facebook}/></li>
                                 <li><img src={gmail}/></li>
                                 <li><img src={mailin}/></li>
                                 <li><img src={insta}/></li>

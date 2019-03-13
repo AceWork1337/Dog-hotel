@@ -22,7 +22,7 @@ export default class Pets extends React.Component {
 
     // componentWillMount(){
         renderMovies = () => {
-            axios.get("http://34.244.230.153/backend/allpets")
+            axios.get("http://34.243.34.187/backend/allpets")
             .then(res => {
                 console.log(res.data);
                 var movies=res.data;
