@@ -30,7 +30,7 @@ export default class AdminPanel extends React.Component {
     }
     render() {
         return (
-            <BrowserRouter>
+            <BrowserRouter basename="/admin">
               <div id="userProfileDiv">
               <Row>
               <Col s={12}>
@@ -62,29 +62,30 @@ export default class AdminPanel extends React.Component {
                             </SideNav>
                         </Col> */}
                         {/* <Col s={12}> */}
-                        <Button><NavLink to='/admin'>Add Users</NavLink></Button>
-                        <Button><NavLink to='/admin/users'>Users</NavLink></Button>
-                            <Button><NavLink to='/admin/pets'>Pets</NavLink></Button>
+                        <Button><Link to='/'>Add Users</Link></Button>
+                        <Button><Link to='/users'>Users</Link></Button>
+                            <Button><Link to='/pets'>Pets</Link></Button>
                             {/* <Button><NavLink exact to='/admin/reservation'>Reservations</NavLink></Button> */}
-                            <Button><NavLink exact to='/admin/reservationNoLogin'>Reservations</NavLink></Button>
-                            <Button><NavLink exact to='/admin/contact-questions'>Contact-questions</NavLink></Button>
+                            <Button><Link to='/reservationNoLogin'>Reservations</Link></Button>
+                            <Button><Link to='/contact-questions'>Contact-questions</Link></Button>
                                 <Button waves='light' id="logout" onClick={this.logout}>Sing out</Button>
                             {/* </Col> */}
                         </Col>
                         <Col s={12} l={9}>
                         
                             <Switch>
-                                <Route  path="/admin" exact component={AdminDash}/>
-                                <Route  path="/admin/users" exact component={Users}/>
-                                <Route  path="/admin/pets" exact component={Pets}/>
+                                
+                                <Route  path="/users"  component={Users}/>
+                                <Route  path="/pets"  component={Pets}/>
                                 {/* <Route  path="/admin/present" exact component={Present}/> */}
                                 {/* <Route  path="/admin/past" exact component={Past}/> */}
-                                <Route  path="/admin/reservation" exact component={ReservationsAdmin}/>
-                                <Route  path="/admin/reservationNoLogin" exact component={ReservationNoLogin}/>
-                                <Route  path="/admin/contact-questions" exact component={ContactAdmin}/>
+                                <Route  path="/reservationNoLogin"  component={ReservationNoLogin}/>
+                                <Route  path="/reservation"  component={ReservationsAdmin}/>
+                                <Route  path="/contact-questions"  component={ContactAdmin}/>
+                                <Route  path="/" exact component={AdminDash}/>
                                 <Route  component={NotFound}/>
                             </Switch>
-                           
+                            
                         </Col>
                     </Col>
                 </Row>

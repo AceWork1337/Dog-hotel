@@ -10,11 +10,11 @@ import logo from '../../styles/assets/img/logo-concept.png';
 import '../../styles/containers/About.scss';
 import DogImg from '../../styles/assets/img/Dog2.png';
 
-export default class About extends React.Component {
-  
+export default class Steam extends React.Component {
+
     render() {
         return (
-            <div id="about">
+            <div id="steam">
                 <Grid>
                     {/* <Row>
                     <Col md={3}></Col>
@@ -24,27 +24,23 @@ export default class About extends React.Component {
                         </Col>
                     </Row> */}
                     <Row>
+                        <Col md={1}></Col>
+                        <Col md={11}>
 
-                        <Col md={6}>
-                        
                             <div>
-                                <h4>Our Philosophy</h4>
+                                <h4>About Safety</h4>
                                 <p>
-                                    We love dogs.<br />
-                                    We love them like you love them.<br />
-                                    While they’re boarding or hanging out in our daycare, they’ll get just as much attention and affection as they do at home.
-                                    And don’t worry, their health and safety is always our #1 priority.We’re here for you and your dog 24 hours a day, every day.
-
+                                    With 24/7 webcam access, and 24/7 drop-off & pick-up, you’ll always be close to your pet—even when you’re far away.<br />
+                                    We are unique because your pets live with us all the time.
+                                    From our spacious dog daycare play areas to our beautiful boarding accommodations and grooming services,cross walking and exercises
                                 </p>
                             </div>
                         </Col>
-                        <Col md={6}>
+                        {/* <Col md={6}>
                             <Image src={logo} responsive />
                             
-                            <Parallax className="Dog2Div" x={[200, 0]} tagOuter="div">
-                                <Image src={DogImg} className="2Dog" />
-                            </Parallax>
-                        </Col>
+                            
+                        </Col> */}
 
                     </Row>
                 </Grid>

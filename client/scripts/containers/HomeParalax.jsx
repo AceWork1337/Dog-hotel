@@ -2,8 +2,9 @@
 import React from 'react';
 import { Carousel, Grid, Row, Col, Image } from 'react-bootstrap';
 import { Slider, Slide } from 'react-materialize';
-import { Parallax } from 'react-scroll-parallax';
-import ParallaxMousemove from 'react-parallax-mousemove'
+import { Parallax ,ParallaxBanner} from 'react-scroll-parallax';
+import ParallaxMousemove from 'react-parallax-mousemove';
+import $ from 'jquery';
 //import components and containers
 // import Home from '../routes/Home.jsx';
 // import UserProfile from '../routes/UserProfile.jsx';
@@ -27,12 +28,21 @@ import pethotel from '../../styles/assets/img/pet-hotel.jpg';
 import PetGrooming from '../../styles/assets/img/Pet-Grooming.jpg';
 import HouseImg from '../../styles/assets/img/cipo-houseslider.jpg';
 import HouseImgW from '../../styles/assets/img/cipo-housesliderW.png';
-import DogImg from '../../styles/assets/img/Dog2.png';
 import DogImg1 from '../../styles/assets/img/GoldPet.png';
 import DogImgHead from '../../styles/assets/img/cipo-houseslider-head.png';
-
+import Fade from 'react-reveal/Fade';
 export default class HomeParalax extends React.Component {
-
+componentDidMount(){
+  // $(window).scroll(function() {
+  // let top = $(window).scrollTop();
+  // let dogGold = $( ".goldDogDiv" ); 
+  // console.log(top )
+  // if(top < 300 && dogGold.css('margin-left')<"300px"){
+  //   dogGold.animate({ "margin-left": "+=20px" },500 );
+  //   console.log(dogGold.css('margin-left') );
+  // }
+  // })
+}
   render() {
 
     const styleImgHouse = {
@@ -78,35 +88,7 @@ export default class HomeParalax extends React.Component {
         bottom: 0,
         textAlign: 'center'
       },
-      // header: {
-      //   fontFamily: 'Open Sans Condensed',
-      //   textTransform: 'uppercase',
-      //   color: 'white',
-      //   textShadow: '0px 0px 2px #43AABA',
-      //   fontSize: '50px',
-      //   marginTop: '35px',
-      //   fontWeight: 600
-      // },
-      // paragraph: {
-      //   fontFamily: 'Roboto',
-      //   fontSize: '20px',
-      //   color: 'white',
-      //   letterSpacing: '0.62px',
-      //   lineHeight: '30px',
-      //   fontWeight: 300
-      // },
-      // button: {
-      //   fontFamily: 'Roboto',
-      //   borderRadius: '100px',
-      //   background: '#247B8A',
-      //   textDecoration: 'none',
-      //   color: 'white',
-      //   textAlign: 'center',
-      //   padding: '20px',
-      //   marginTop: '40px',
-      //   fontWeight: 100,
-      //   display: 'block'
-      // },
+     
       infoLayerStyle: {
         position: 'relative',
         // marginTop: '-62%',
@@ -147,9 +129,19 @@ export default class HomeParalax extends React.Component {
       <Row>
       <div className="home-page-paralax" style={style.outter}>
 
-      <Parallax className="custom-class" x={[-20, 20]} tagOuter="figure">
-        <Image src={DogImg1} className="goldDog" />
-    </Parallax>
+                  <Parallax className="goldDogDiv" x={[100, 200]} tagOuter="div">
+                    <Image src={DogImg1} className="goldDog" />
+                </Parallax>
+                <Parallax className="headerDiv" x={[130, 90]} y={[0, 0]} tagOuter="div">
+                    <Image src={DogImgHead} className="header" />
+                </Parallax>
+
+{/* <Fade left>
+          <h1>React Reveal</h1>
+        </Fade> */}
+        {/* <div className="goldDogDiv">
+ <img src={DogImg1} className="goldDog" />
+ </div> */}
       </div>
       </Row>
     );

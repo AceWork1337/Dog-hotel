@@ -160,13 +160,13 @@ AdminRoute({ component: Component, ...rest }) {
                   {/* <Route  path="/faq" component={Faq}/> */}
                   {/* <PrivateRoute  path="/user" component={UserProfile}/> */}
                   <Route  path="/reg" component={Register}/>
-                  <AdminRoute  path="/admin" exact component={AdminPanel}/>
+                  <AdminRoute  path="/admin"  component={AdminPanel}/>
                   {/* <Route  path="/contact" component={Contact}/> */}
-                  <Route  path="/res" exact component={Reservation}/>
+                  <Route  path="/res"  component={Reservation}/>
                   {/* <Route  path="/About" exact component={About}/> */}
                   <Route  path="/login" component={Login}/>
                   {/* <Route  path="/accommodation" exact component={Rooms}/> */}
-                  <Route  path="/" exact component={Home}/>
+                  <Route  path="/"  component={Home}/>
                   <Route  component={NotFound}/>
                 </Switch>
                 {/* <Footer/> */}
