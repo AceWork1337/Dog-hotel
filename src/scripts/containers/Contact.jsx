@@ -1,6 +1,6 @@
 //import npm package
 import React from 'react';
-import {Grid, Row, Col,Image} from 'react-bootstrap';
+import {Grid, Row, Col} from 'react-bootstrap';
 import {Icon} from 'react-materialize';
 
 //import components and containers
@@ -8,7 +8,7 @@ import {Icon} from 'react-materialize';
 import ContactForm from './ContactForm.jsx';
 import '../../styles/containers/Contact.scss';
 //import assets
-import map from '../../styles/assets/img/maps.png';
+// import map from '../../styles/assets/img/maps.png';
 import facebook from '../../styles/assets/img/social icons/facebook.png';
 import gmail from '../../styles/assets/img/social icons/gmail.png';
 import mailin from '../../styles/assets/img/social icons/in.png';
@@ -49,7 +49,8 @@ export default class Contact extends React.Component {
                             {/* <iframe scr={"https://www.npmjs.com/package/google-map-react"}><a></a></iframe> */}
                         {/* </Col>                     */}
                     {/* </Row> */}
-                    <Image src={map} responsive />
+                    {/* <Image src={map} responsive /> */}
+                    <iframe title="Maps" src="https://www.google.com/maps/d/embed?mid=1NmCGWtxNsdXALkq5Y0Ui1bQ5V5fHcLsx" width="100%" height="480"/>
                     {/* <Row className="show-Grid">
                         <Col md={12}>
                             <ul className="socialI">
