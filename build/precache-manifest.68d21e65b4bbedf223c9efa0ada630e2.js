@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/static/media/GoldPet.306487bc.png"
   },
   {
-    "revision": "3af2c1855b32b1506895",
-    "url": "/static/css/main.8123a06a.chunk.css"
+    "revision": "be2e230f9c51bc562cb2",
+    "url": "/static/css/main.324121ec.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
     "url": "/static/js/runtime~main.a8a9905a.js"
   },
   {
-    "revision": "4f3f0c8372511358ae6b",
-    "url": "/static/js/2.ee0decbe.chunk.js"
+    "revision": "5a9fc3b4e64b68ddd2df",
+    "url": "/static/js/2.a67298c1.chunk.js"
   },
   {
     "revision": "7f995aae439c5655cf91b05ed882c46a",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/cipo-houseslider.fdda010d.jpg"
   },
   {
-    "revision": "3af2c1855b32b1506895",
-    "url": "/static/js/main.9ea49287.chunk.js"
+    "revision": "be2e230f9c51bc562cb2",
+    "url": "/static/js/main.39b53793.chunk.js"
   },
   {
     "revision": "aa12ec87c639f96ceb67d8f8cd50e924",
@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/static/media/cartoonbones1.85421cb2.png"
   },
   {
-    "revision": "dba9ac37f63e0d378644adc32c0ecfd8",
+    "revision": "c1339d663e766b48d3eeb4a86bb516d7",
     "url": "/index.html"
   }
 ];

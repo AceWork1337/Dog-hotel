@@ -38,7 +38,7 @@ export default class Header extends Component {
             // var newChange = $('.SliderCanvas');
             var offset = startchange.offset();
             offset.top-=100;
-            console.log(offset);
+            // console.log(offset);
             //  if (startchange.length){
             // $(window).scroll(function() { 
             //    scroll_start = $(this).scrollTop();

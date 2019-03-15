@@ -1,6 +1,6 @@
 //import npm package
 // import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
 import React, { Component } from "react";
 // import {Redirect , Route} from "react-router-dom";
@@ -27,8 +27,8 @@ import HeaderEmpty from '../components/HeaderEmpty.jsx';
 import '../../styles/routes/App.scss';
 
 // import { render } from 'react-dom';
-import { getNews } from '../actions';
-import { bindActionCreators } from 'redux';
+// import { getNews } from '../actions';
+// import { bindActionCreators } from 'redux';
 if (window.location.pathname === "/") {
   var Headerrender = Header;
 } else {
@@ -49,9 +49,9 @@ class App extends Component {
   componentWillMount() {
     // this.props.getMovies(),
     // this.props.getCars()
-    this.props.getNews();
+    // this.props.getNews();
     // this.props.getUserinfo();
-    console.log(window.location.pathname);
+    // console.log(window.location.pathname);
 
     // this.props.carslist();
     // fetch('http://127.0.0.1:8181/')
@@ -144,9 +144,9 @@ class App extends Component {
 
   render() {
     // console.log(this.props.movieslist.movies)
-    console.log("ovde pochnuva");
-    console.log(this.props.data);
-    console.log("ovde zavrshuva");
+    // console.log("ovde pochnuva");
+    // console.log(this.props.data);
+    // console.log("ovde zavrshuva");
     // var PrivateRoute = this.PrivateRoute
     var AdminRoute = this.AdminRoute
     // let Headerrender = Headerrender;
@@ -177,21 +177,21 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    data: state.news,
-    // data: state.userinfo,
-    // body: {email:state.email,login:state.login}
-  }
-}
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    getNews
-  }
-    // ,{getUserinfo}
-    , dispatch)
+// const mapStateToProps = (state) => {
+//   return {
+//     data: state.news,
+//     // data: state.userinfo,
+//     // body: {email:state.email,login:state.login}
+//   }
+// }
+// const mapDispatchToProps = (dispatch) => {
+//   return bindActionCreators({
+//     getNews
+//   }
+//     // ,{getUserinfo}
+//     , dispatch)
 
-}
+// }
 
 // const  mapDispatchToProps = (dispatch) => {
 //  return {
@@ -204,5 +204,6 @@ const mapDispatchToProps = (dispatch) => {
 //  }
 // ...bindActionCreators(actionCreators, dispatch),
 // }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
   // export const getCart = state => state.email
