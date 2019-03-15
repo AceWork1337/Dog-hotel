@@ -54,36 +54,69 @@ router.post('/contactform', function (req, res) {
         // });
     });  
 });
-router.post('/modify', function (req, res) {
+router.post('/adduser', function (req, res) {
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
-    var username = req.body.username;
+    // var username = req.body.username;
     var email = req.body.email;
-    var password = req.body.password;
+    // var password = req.body.password;
     var phone = parseInt(req.body.phone);
-    console.log(username);
+    // console.log(username);
     model.connectToDb(function (dbo) {
-        var newmyobj = {firstName:firstName, lastName:lastName, username: username, email: email, password: password, phone:phone ,admin:false};
+        var newmyobj = {firstName:firstName, lastName:lastName, email: email, phone:phone ,admin:false};
         
         model.findUser(email, function (usersInfo) {
-            var myobj = {name: usersInfo.name, email: usersInfo.email, password: usersInfo.password, firstName: usersInfo.firstName, lastName: usersInfo.lastName, phone: usersInfo.phone};
-            for (var i in newmyobj){
-                console.log(newmyobj[i]);
-                if (newmyobj[i] === ""){
-                    console.log("praznoe");
+                console.log("baram user");
+                for (var i in newmyobj){
+                    console.log(newmyobj[i]);
+                    if (newmyobj[i] === ""){
+                        console.log("praznoe");
+                        // res.send("ne se popuneti site polinja");
+                    } 
+                    // else {
+                    //     if (usersInfo && newmyobj !==null && newmyobj.values !== []) {
+                    //         var myobj = { email: usersInfo.email, password: usersInfo.password, firstName: usersInfo.firstName, lastName: usersInfo.lastName, phone: usersInfo.phone};
+                           
+                    //         dbo.collection("users").update(myobj,newmyobj, function (err, usersInfo) {
+                    //             console.log("User updated");
+                    //             // res.send(usersInfo);
+                    //         });
+                    //     } else if(!usersinfo){
+                    //         dbo.collection("users").insertOne(newmyobj, function(err,usersInfo){
+                    //             // res.send(usersInfo);
+                    //             console.log("kreiram user");
+                    //         })
+                    //         // res.send("user doesnt exist")
+                    //     }
+                    // }
                 }
-            }
-            console.log(newmyobj.firstName);
-            console.log("blablabla");
-            console.log(usersInfo);
-            if (usersInfo !== null && newmyobj !==null && newmyobj.values !== []) {
-                dbo.collection("users").update(myobj,newmyobj, function (err, usersInfo) {
-                    console.log("User updated");
-                    res.send(usersInfo);
-                });
-            } else {
-                res.send("user doesnt exist")
-            }
+                if(newmyobj.values !==[] ){
+                // if(newmyobj.values !==[] && usersInfo.email !==null){
+
+                    // var myobj = { email: usersInfo.email, password: usersInfo.password, firstName: usersInfo.firstName, lastName: usersInfo.lastName, phone: usersInfo.phone};
+                           
+                            // dbo.collection("users").update(myobj,newmyobj, function (err, usersInfo) {
+                                // console.log("User updated");
+                    //             // res.send(usersInfo);
+                            // });
+                        // } else if(usersinfo.email === null){
+                            dbo.collection("users").insertOne(newmyobj, function(err,usersInfo){
+                    //             // res.send(usersInfo);
+                                console.log("kreiram user");
+                            })
+                    //         // res.send("user doesnt exist")
+                    //     }
+                }   else {
+                    console.log("userot veke postoi");
+                } 
+            // } 
+            
+            // } else {
+                // dbo.collection("users").insertOne(newmyobj, function(err,usersInfo){
+                //    console.log("kreiram");
+                    // res.send(usersInfo);
+                // })
+            // }
         });
     });
     var petID = req.body.petID;
@@ -95,7 +128,7 @@ router.post('/modify', function (req, res) {
     var chipID = req.body.chipID;
     model.connectToDb(function (dbo){
         var newpetInfo = {email:email, petID:petID, petNickname:petNickname, Breeds:Breeds, group1:group1, on:on, chipID:chipID};
-        console.log(newpetInfo);
+        // console.log(newpetInfo);
         model.findPet(chipID, function (petInfo) {
             // console.log("petid");
             // console.log(petinfo);
@@ -103,10 +136,11 @@ router.post('/modify', function (req, res) {
             // var mypet= {petID:petInfo.petID, petNickName:petInfo.petNickname, Breeds:petInfo.breeds, Sex:petInfo.group1, bday:petInfo.bday, chipID:petInfo.chipID}
             if(petInfo === null){
                 dbo.collection("pets").insertOne(newpetInfo, function (err,newpetInfo){
-                    console.log(newpetInfo);
-                    // res.send(newpetInfo);
+                    // console.log(newpetInfo);
+                    res.send(true);
                 })
-            }
+            } else {
+                res.send(false);            }
         });
     });
 
@@ -119,11 +153,11 @@ router.post('/log', function (req, res) {
         var myobjlog = {email: email, password: passwordlog};
         console.log(myobjlog);
         model.findUser(email, function (usersInfo) {
-            console.log(usersInfo);
+            // console.log(usersInfo);
 
             dbo.collection("users").findOne({email: email}, function (err, usersInfo) {
 
-                console.log(usersInfo);
+                // console.log(usersInfo);
                 if (usersInfo === null) {
                     // res.redirect('../log');
                     res.send('Userot nepostoi');
@@ -241,7 +275,7 @@ router.post('/reservationNoLogin', function (req, res) {
                         console.log(err);
                     } else {
                     console.log("reservation created");
-                    res.send('reservation created');
+                    res.send(true);
                     }
                 });
             }

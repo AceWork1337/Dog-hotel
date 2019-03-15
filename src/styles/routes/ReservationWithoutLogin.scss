@@ -1,0 +1,30 @@
+#ReservationWithoutLogin {
+    // margin-top: 12%;
+    // width: 80%;
+    // padding: 45px;
+    // padding-bottom: 5%;
+    // padding-top: 5%;
+    // border: 2px outset gainsboro;
+    // box-shadow: -10px 9px 20px 5px cadetblue;    
+    // background-color: antiquewhite;
+    margin-top: 150px;
+    /* margin-bottom: 0; */
+    width: 80%;
+    margin-left: 10%;
+    /* padding: 45px; */
+    // padding-bottom: 2%;
+    padding: 2%;
+    // padding-top: 2%;
+    border: 2px outset gainsboro;
+    box-shadow: -10px 9px 20px 5px cadetblue;
+    background-color: antiquewhite;
+    // font-family: 'gly';
+    font-family: sans-serif;
+    [type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
+        margin-top: 20px;
+    }
+    button {
+        margin-top: 40px;
+    }
+    
+}
