@@ -60,7 +60,7 @@ export default class UserDash extends React.Component {
 
         });
         console.log(user)
-        axios.post(`http://34.243.34.187/backend/modify`, user,{headers:{'Content-Type':'application/json'}})
+        axios.post(`http://ciposhouse.mk/backend/modify`, user,{headers:{'Content-Type':'application/json'}})
           .then(res => {
             console.log(res);
             console.log(res.data);

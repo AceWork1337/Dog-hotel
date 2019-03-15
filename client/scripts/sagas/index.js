@@ -90,7 +90,7 @@ import { put, takeLatest, all,call,select } from 'redux-saga/effects';
 function* fetchNews() {
 //   // try {
 //     console.log('fetching detail info')
-    const response = yield fetch('http://34.243.34.187/backend/allusers', {
+    const response = yield fetch('http://ciposhouse.mk/backend/allusers', {
 
 //     method: 'POST',
 //     headers: {

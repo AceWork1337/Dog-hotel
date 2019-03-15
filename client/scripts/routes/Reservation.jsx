@@ -52,7 +52,7 @@ export default class Reservation extends React.Component {
 
         console.log(user)
 
-        axios.post(`http://34.243.34.187/backend/reservationNoLogin`, user, {headers:{"Content-Type":"application/json"}})
+        axios.post(`http://ciposhouse.mk/backend/reservationNoLogin`, user, {headers:{"Content-Type":"application/json"}})
             .then(res => {
                 console.log(res);
                 console.log(res.data);

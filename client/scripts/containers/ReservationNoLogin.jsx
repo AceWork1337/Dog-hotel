@@ -22,7 +22,7 @@ export default class reservationNoLogin extends React.Component {
 
     // componentWillMount(){
         renderMovies = () => {
-            axios.get("http://34.243.34.187/backend/reservationNoLogin")
+            axios.get("http://ciposhouse.mk/backend/reservationNoLogin")
             .then(res => {
                 console.log(res.data);
                 var movies=res.data;

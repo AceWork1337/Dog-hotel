@@ -56,7 +56,7 @@ export default class Login extends React.Component {
             
           console.log(user)
           var self =this;
-          axios.post(`http://34.243.34.187/backend/log`, user,{headers:{'Content-Type':'application/json'}})
+          axios.post(`http://ciposhouse.mk/backend/log`, user,{headers:{'Content-Type':'application/json'}})
             .then(res => {
               console.log("res");
               console.log(res);
